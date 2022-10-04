@@ -3,19 +3,19 @@ import { colors } from "../../styles/colors";
 import { typography } from "../../styles/typography";
 
 export const Wrapper = styled.div`
-  width: 240px;
-  padding: 0 30px;
+  width: 24rem;
+  padding: 0 3rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
+  gap: 1.6rem;
   & div {
-    width: 92px;
+    width: 9.2rem;
     display: flex;
     justify-content: space-between;
     & a {
       text-decoration: none;
-      height: 1.25rem;
+      height: 2rem;
       color: ${colors.gray};
     }
   }
@@ -25,8 +25,8 @@ export const Wrapper = styled.div`
 `;
 
 export const Img = styled.img`
-  width: 180px;
-  height: 180px;
+  width: 18rem;
+  height: 18rem;
   object-fit: cover;
   border-radius: 50%;
 `;
