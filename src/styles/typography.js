@@ -89,3 +89,27 @@ export const typography = {
         text-transform: uppercase;
   `
 };
+
+for (const size in typography.head) {
+  typography.head[size] += `
+    font-family: ${fonts.primary}
+    `;
+}
+
+for (const size in typography.subtitle) {
+  typography.subtitle[size] += `
+    font-family: ${fonts.primary}
+    `;
+}
+
+for (const size in typography.text) {
+  typography.text[size] += `
+      font-family: ${fonts.secondary}
+      `;
+}
+
+for (const size in typography.body) {
+  typography.body[size] += `
+    font-family: ${fonts.secondary}
+    `;
+}
