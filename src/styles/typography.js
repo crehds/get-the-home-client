@@ -90,7 +90,7 @@ export const typography = {
   `
 };
 
-for (const size in typography.head) {
+for (const size in typography.headline) {
   typography.headline[size] += `
     font-family: ${fonts.primary}
     `;
