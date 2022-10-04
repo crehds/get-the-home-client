@@ -1,5 +1,11 @@
+import DeveloperCard from "./components/DeveloperCard";
+
 function App() {
-  return <div>A codeal</div>;
+  return (
+    <div>
+      <DeveloperCard></DeveloperCard>
+    </div>
+  );
 }
 
 export default App;

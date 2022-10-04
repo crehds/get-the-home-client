@@ -32,7 +32,6 @@ export const typography = {
         font-size:1.5rem;
         line-height:2rem;
         font-weight:400;
-        letter-spacing: 32px;
         `,
     6: `
         font-size:1.25rem;
