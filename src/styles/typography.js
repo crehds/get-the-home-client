@@ -5,86 +5,86 @@ export const fonts = {
 
 export const typography = {
   headline: {
-    1: `
-        font-size:6rem;
-        line-height:8rem;
-        font-weight:300;
+    xxl: `
+        font-size: 9.6rem;
+        line-height: 12.8rem;
+        font-weight: 300;
         letter-spacing: -1.5px;
         `,
-    2: `
-        font-size:4rem;
-        line-height:5.5rem;
-        font-weight:300;
+    xl: `
+        font-size: 6.4rem;
+        line-height: 8.8rem;
+        font-weight: 300;
         letter-spacing: -0.5px;
         `,
-    3: `
-        font-size:3rem;
-        line-height:4rem;
-        font-weight:400;
+    l: `
+        font-size: 4.8rem;
+        line-height: 6.4rem;
+        font-weight: 400;
         `,
-    4: `
-        font-size:2.25rem;
-        line-height:3rem;
-        font-weight:400;
+    md: `
+        font-size: 3.6rem;
+        line-height: 4.8rem;
+        font-weight: 400;
         letter-spacing: 0.25px;
         `,
-    5: `
-        font-size:1.5rem;
-        line-height:2rem;
-        font-weight:400;
+    s: `
+        font-size: 2.4rem;
+        line-height: 3.2rem;
+        font-weight: 400;
         `,
-    6: `
-        font-size:1.25rem;
-        line-height:1.75rem;
-        font-weight:500;
+    xs: `
+        font-size: 2rem;
+        line-height: 2.8rem;
+        font-weight: 500;
         letter-spacing: 0.15px;
         `
   },
   subtitle: {
-    1: `
-        font-size:1rem;
-        line-height:1.5rem;
-        font-weight:400;
+    md: `
+        font-size: 1.6rem;
+        line-height: 2.4rem;
+        font-weight: 400;
         letter-spacing: 0.15px;
         `,
-    2: `
-        font-size:0.875rem;
-        line-height:1.25rem;
-        font-weight:500;
+    s: `
+        font-size: 1.4rem;
+        line-height: 2rem;
+        font-weight: 500;
         letter-spacing: 0.1px;
         `
   },
   body: {
-    1: `
-        font-size:1rem;
-        line-height:1.5rem;
-        font-weight:400;
+    md: `
+        font-size: 1.6rem;
+        line-height: 2.4rem;
+        font-weight: 400;
         letter-spacing: 0.5px;
         `,
-    2: `
-        font-size:0.875rem;
-        line-height:1.25rem;
+    s: `
+        font-size: 1.4rem;
+        line-height: 2rem;
         font-weight:400;
         letter-spacing: 0.25px;
         `
   },
   button: `
-        font-size:0.875rem;
-        line-height:1.5rem;
-        font-weight:500;
+        font-size: 1.4rem;
+        line-height: 2.4rem;
+        font-weight: 500;
         letter-spacing: 1.25px;
         text-transform: uppercase;
   `,
   caption: `
-        font-size:0.75rem;
-        line-height:1rem;
-        font-weight:400;
+        font-size: 1.2rem;
+        line-height: 1.6rem;
+        font-weight: 400;
         letter-spacing: 0.4px;
   `,
   overline: `
-        font-size:0.625rem;
-        line-height:1rem;
-        font-weight:400;
+        font-size: 1rem;
+        line-height: 1.6rem;
+        font-weight: 400;
         letter-spacing: 1.5px;
         text-transform: uppercase;
   `
