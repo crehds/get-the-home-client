@@ -1,11 +1,7 @@
 import DeveloperCard from "./components/DeveloperCard";
 
 function App() {
-  return (
-    <div>
-      <DeveloperCard></DeveloperCard>
-    </div>
-  );
+  return <div></div>;
 }
 
 export default App;
