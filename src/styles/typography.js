@@ -1,6 +1,6 @@
 export const fonts = {
-  montserrat: `'Montserrat', sans-serif`,
-  inter: `'Inter', sans-serif`,
+  primary: `'Montserrat', sans-serif`,
+  secondary: `'Inter', sans-serif`
 };
 
 export const typography = {
@@ -9,13 +9,13 @@ export const typography = {
         font-size:6rem;
         line-height:8rem;
         font-weight:300;
-        letter-spacing: -1.5 px;
+        letter-spacing: -1.5px;
         `,
     2: `
         font-size:4rem;
         line-height:5.5rem;
         font-weight:300;
-        letter-spacing: -0.5 px;
+        letter-spacing: -0.5px;
         `,
     3: `
         font-size:3rem;
@@ -26,7 +26,7 @@ export const typography = {
         font-size:2.25rem;
         line-height:3rem;
         font-weight:400;
-        letter-spacing: 0.25 px;
+        letter-spacing: 0.25px;
         `,
     5: `
         font-size:1.5rem;
@@ -37,55 +37,55 @@ export const typography = {
         font-size:1.25rem;
         line-height:1.75rem;
         font-weight:500;
-        letter-spacing: 0.15 px;
-        `,
+        letter-spacing: 0.15px;
+        `
   },
   subtitle: {
     1: `
         font-size:1rem;
         line-height:1.5rem;
         font-weight:400;
-        letter-spacing: 0.15 px;
+        letter-spacing: 0.15px;
         `,
     2: `
         font-size:0.875rem;
         line-height:1.25rem;
         font-weight:500;
-        letter-spacing: 0.1 px;
-        `,
+        letter-spacing: 0.1px;
+        `
   },
   body: {
     1: `
         font-size:1rem;
         line-height:1.5rem;
         font-weight:400;
-        letter-spacing: 0.5 px;
+        letter-spacing: 0.5px;
         `,
     2: `
         font-size:0.875rem;
         line-height:1.25rem;
         font-weight:400;
-        letter-spacing: 0.25 px;
-        `,
+        letter-spacing: 0.25px;
+        `
   },
   button: `
         font-size:0.875rem;
         line-height:1.5rem;
         font-weight:500;
-        letter-spacing: 1.25 px;
+        letter-spacing: 1.25px;
         text-transform: uppercase;
   `,
   caption: `
         font-size:0.75rem;
         line-height:1rem;
         font-weight:400;
-        letter-spacing: 0.4 px;
+        letter-spacing: 0.4px;
   `,
   overline: `
         font-size:0.625rem;
         line-height:1rem;
         font-weight:400;
-        letter-spacing: 1.5 px;
+        letter-spacing: 1.5px;
         text-transform: uppercase;
-  `,
+  `
 };

@@ -8,7 +8,12 @@ export const reset = css`
   *,
   *::before,
   *::after {
+    padding: 0;
+    margin: 0;
     box-sizing: border-box;
+  }
+  html {
+    font-size: 62.5%;
   }
   /* Remove default margin */
   body,
@@ -79,7 +84,7 @@ export const global = css`
   body {
     font-size: 1rem;
     line-height: 1.5rem;
-    font-family: ${fonts.montserrat};
+    font-family: ${fonts.primary};
     color: ${colors.darkGray};
     background-color: ${colors.white};
   }
