@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
   align-items: center;
   gap: 1.6rem;
   & div {
-    width: 9.2rem;
+    width: 9.5rem;
     display: flex;
     justify-content: space-between;
     & a {
@@ -20,6 +20,8 @@ export const Wrapper = styled.div`
     }
   }
   & p {
+    width: 100%;
+    text-align: center;
     ${typography.headline.s};
   }
 `;
