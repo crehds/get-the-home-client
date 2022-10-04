@@ -1,6 +1,6 @@
-import styled from "@emotion/styled";
-import { colors } from "../../styles/colors";
-import { typography } from "../../styles/typography";
+import styled from '@emotion/styled';
+import { colors } from '../../styles/colors';
+import { typography } from '../../styles/typography';
 
 export const Wrapper = styled.div`
   width: 24rem;
@@ -10,17 +10,20 @@ export const Wrapper = styled.div`
   align-items: center;
   gap: 1.6rem;
   & div {
-    width: 9.2rem;
+    width: 9.5rem;
     display: flex;
     justify-content: space-between;
     & a {
+      cursor: pointer;
       text-decoration: none;
       height: 2rem;
       color: ${colors.gray};
     }
   }
   & p {
-    ${typography.headline[5]};
+    width: 100%;
+    text-align: center;
+    ${typography.headline.s};
   }
 `;
 

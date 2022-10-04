@@ -1,5 +1,20 @@
-function SignupCard() {
-  return <div>SignupCard</div>;
-}
+import PropTypes from 'prop-types';
+import { Wrapper } from './styles';
 
+function SignupCard({ img, name, description }) {
+  return (
+    <Wrapper>
+      <img src={img} alt={`${name}-img`} />
+      <div>
+        <h3>{name}</h3>
+        <p>{description}</p>
+      </div>
+    </Wrapper>
+  );
+}
+SignupCard.propTypes = {
+  img: PropTypes.string,
+  name: PropTypes.string,
+  description: PropTypes.string
+};
 export default SignupCard;
