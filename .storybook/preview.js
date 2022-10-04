@@ -1,4 +1,15 @@
 import { themes } from '@storybook/theming';
+import { Global } from '@emotion/react';
+import { global, reset } from '../src/styles/global';
+import { addDecorator } from '@storybook/react';
+
+addDecorator((story) => (
+  <>
+    <Global styles={reset} />
+    <Global styles={global} />
+    {story()}
+  </>
+));
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
