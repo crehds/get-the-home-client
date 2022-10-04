@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Wrapper } from './styles';
 
 function SignupCard({ img, name, description }) {
@@ -11,5 +12,9 @@ function SignupCard({ img, name, description }) {
     </Wrapper>
   );
 }
-
+SignupCard.propTypes = {
+  img: PropTypes.string,
+  name: PropTypes.string,
+  description: PropTypes.string
+};
 export default SignupCard;

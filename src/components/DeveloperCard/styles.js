@@ -14,6 +14,7 @@ export const Wrapper = styled.div`
     display: flex;
     justify-content: space-between;
     & a {
+      cursor: pointer;
       text-decoration: none;
       height: 2rem;
       color: ${colors.gray};
