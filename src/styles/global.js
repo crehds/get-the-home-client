@@ -1,9 +1,9 @@
-import { css } from "@emotion/react";
-import { colors } from "./colors";
-import { fonts } from "./typography";
+import { css } from '@emotion/react';
+import { colors } from './colors';
+import { fonts } from './typography';
 
 export const reset = css`
-  @import url("https://fonts.googleapis.com/css2?family=Inter&family=Montserrat&display=swap");
+  @import url('https://fonts.googleapis.com/css2?family=Inter&family=Montserrat&display=swap');
   /* Box sizing rules */
   *,
   *::before,
@@ -29,8 +29,8 @@ export const reset = css`
     margin: 0;
   }
   /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
-  ul[role="list"],
-  ol[role="list"] {
+  ul[role='list'],
+  ol[role='list'] {
     list-style: none;
   }
   /* Set core root defaults */

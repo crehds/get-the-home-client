@@ -1,6 +1,6 @@
-import { Img, Wrapper } from "./styles";
-import PropTypes from "prop-types";
-import { AiFillGithub, AiOutlineLinkedin } from "react-icons/ai";
+import { Img, Wrapper } from './styles';
+import PropTypes from 'prop-types';
+import { AiFillGithub, AiOutlineLinkedin } from 'react-icons/ai';
 
 function DeveloperCard({ avatar, name, githubLink, linkedinLink }) {
   return (
@@ -9,10 +9,10 @@ function DeveloperCard({ avatar, name, githubLink, linkedinLink }) {
       <p>{name}</p>
       <div>
         <a href={githubLink} target="blank">
-          <AiFillGithub size={"2rem"}></AiFillGithub>
+          <AiFillGithub size={'2rem'}></AiFillGithub>
         </a>
         <a href={linkedinLink} target="blank">
-          <AiOutlineLinkedin size={"2rem"}></AiOutlineLinkedin>
+          <AiOutlineLinkedin size={'2rem'}></AiOutlineLinkedin>
         </a>
       </div>
     </Wrapper>
