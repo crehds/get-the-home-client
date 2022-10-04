@@ -3,7 +3,7 @@ import { colors } from './colors';
 import { fonts } from './typography';
 
 export const reset = css`
-  @import url('https://fonts.googleapis.com/css2?family=Inter&family=Montserrat&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Montserrat:wght@300;400;500&display=swap');
 
   /* Box sizing rules */
   *,
