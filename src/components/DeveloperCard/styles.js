@@ -1,6 +1,6 @@
-import styled from "@emotion/styled";
-import { colors } from "../../styles/colors";
-import { typography } from "../../styles/typography";
+import styled from '@emotion/styled';
+import { colors } from '../../styles/colors';
+import { typography } from '../../styles/typography';
 
 export const Wrapper = styled.div`
   width: 24rem;
@@ -20,7 +20,7 @@ export const Wrapper = styled.div`
     }
   }
   & p {
-    ${typography.headline[5]};
+    ${typography.headline.s};
   }
 `;
 
