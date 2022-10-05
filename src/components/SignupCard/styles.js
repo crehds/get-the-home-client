@@ -11,7 +11,6 @@ export const Wrapper = styled.div`
   align-items: center;
   gap: 0.8rem;
   border-radius: 0.8rem;
-  margin: 15px;
   ${shadow.elevation1};
   & div {
     width: 100%;
