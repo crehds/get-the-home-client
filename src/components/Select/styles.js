@@ -2,10 +2,9 @@ import styled from '@emotion/styled';
 import { colors } from '../../styles/colors';
 import { typography } from '../../styles/typography';
 
-export const SelectWrapper = styled.div`
-  & label {
-    padding-left: 0.8rem;
-  }
+export const SelectLabel = styled.label`
+  ${typography.overline};
+  color: ${colors.gray};
 `;
 
 export const colourStyles = {

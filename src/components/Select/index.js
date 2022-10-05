@@ -1,6 +1,6 @@
 import CreateSelect from 'react-select';
 import makeAnimated from 'react-select/animated';
-import { colourStyles } from './styles';
+import { colourStyles, SelectLabel } from './styles';
 import Option from './Option';
 
 const animatedComponents = makeAnimated({ Option });
@@ -13,7 +13,7 @@ function Select({
 }) {
   return (
     <>
-      <label htmlFor={name}>{labelValue}</label>
+      <SelectLabel htmlFor={name}>{labelValue}</SelectLabel>
       <CreateSelect
         id={name}
         options={options}
