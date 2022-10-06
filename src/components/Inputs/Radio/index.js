@@ -1,9 +1,9 @@
 import { Label } from './styles';
 
-function Radio({ id, name, value, text }) {
+function Radio({ id, name, value }) {
   return (
     <Label htmlFor={id}>
-      <input type='radio' id={id} name={value} value={value} />
+      <input type='radio' id={id} name={name} value={value} />
       {value}
     </Label>
   );
