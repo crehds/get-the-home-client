@@ -10,6 +10,7 @@ export const SmallButton = styled.button`
   color: ${colors.gray};
   border: none;
   ${typography.button};
+  align-items: center;
   &.primary {
     background-color: ${colors.pink};
     color: ${colors.white};
@@ -45,6 +46,7 @@ export const DefaultButton = styled.button`
   padding: 0.8rem 1.6rem;
   color: ${colors.gray};
   border: none;
+  align-items: center;
   ${typography.button};
   &.primary {
     background-color: ${colors.pink};
