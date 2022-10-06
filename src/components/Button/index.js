@@ -7,8 +7,16 @@ const BUTTONS = {
   large: <LargeButton />
 };
 
-function Button({ size, type = '', value }) {
-  return cloneElement(BUTTONS[size], { className: type, children: value });
+function Button({ size, type = '', value, icon }) {
+  return cloneElement(BUTTONS[size], {
+    className: type,
+    children: (
+      <>
+        {icon}
+        {value}
+      </>
+    )
+  });
 }
 
 export default Button;

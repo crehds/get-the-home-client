@@ -77,6 +77,7 @@ export const DefaultButton = styled.button`
 export const LargeButton = styled.button`
   border-radius: 1.6rem;
   display: flex;
+  align-items: center;
   gap: 0.8rem;
   color: ${colors.gray};
   padding: 1.6rem 2.4rem;
