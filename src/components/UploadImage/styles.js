@@ -6,6 +6,10 @@ export const InputWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 4px;
+  & label {
+    ${typography.overline};
+    color: ${colors.darkGray};
+  }
   & div {
     position: relative;
   }
