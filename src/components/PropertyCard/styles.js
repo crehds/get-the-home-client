@@ -4,7 +4,6 @@ import { typography } from '../../styles/typography';
 import { shadow } from '../../styles/utils';
 
 export const Wrapper = styled.div`
-  margin: 50px;
   width: 30rem;
   border-radius: 0.8rem;
   overflow: hidden;

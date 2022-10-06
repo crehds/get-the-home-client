@@ -16,6 +16,7 @@ export const reset = css`
 
   html {
     font-size: 62.5%;
+    cursor: default;
   }
 
   /* Remove default margin */
@@ -69,7 +70,10 @@ export const reset = css`
   select {
     font: inherit;
   }
-
+  a,
+  button {
+    cursor: pointer;
+  }
   a {
     text-decoration: none;
   }

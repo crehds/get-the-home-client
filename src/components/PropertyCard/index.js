@@ -44,7 +44,7 @@ function PropertyCard(props) {
         </div>
         <div>
           <BiArea size="2rem" />
-          <p>{props.area}</p>
+          <p>{`${props.area} m2`}</p>
         </div>
         {props.pet ? <MdPets size="1.8rem" /> : ''}
         {props.favorite ? <AiFillHeart size="2rem" color={colors.pink} /> : ''}
@@ -54,7 +54,6 @@ function PropertyCard(props) {
       ) : (
         <ActionsCard active={props.active} />
       )}
-      {console.log(props.active)}
     </Wrapper>
   );
 }
