@@ -5,6 +5,17 @@ import { typography } from '../../styles/typography';
 
 export const ChoiceWrapper = styled.div`
   display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+`;
+
+export const ChoiceLabel = styled.p`
+  ${typography.overline};
+  color: ${colors.gray};
+`;
+
+export const LabelsWrapper = styled.div`
+  display: flex;
   flex-wrap: nowrap;
   width: fit-content;
 `;
