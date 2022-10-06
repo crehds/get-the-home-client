@@ -6,6 +6,8 @@ export const SelectWrapper = styled.div`
   display: flex;
   position: relative;
   width: 100%;
+  flex-direction: column;
+  gap: 4px;
 `;
 
 export const SelectLabel = styled.label`
@@ -18,9 +20,7 @@ export const colourStyles = {
     ...styles,
     width: '100%',
     fontSize: '16px',
-    '&:active': {
-      borderColor: 'green'
-    }
+    minWidth: '120px'
   }),
   control: (styles, { isSelected }) => ({
     ...styles,
