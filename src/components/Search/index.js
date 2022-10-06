@@ -1,11 +1,12 @@
 import { BiSearch } from 'react-icons/bi';
 import CreateSelect from 'react-select';
 import { colors } from '../../styles/colors';
-import { searchStyles, SearchWrapper } from './styles';
+import { SearchLabel, searchStyles, SearchWrapper } from './styles';
 
-function Search({ options = [], placeholder = 'Search...' }) {
+function Search({ label, options = [], placeholder = 'Search...' }) {
   return (
     <SearchWrapper>
+      {label && <SearchLabel>{label}</SearchLabel>}
       {/* //todo  icon should be a child of select  */}
       <BiSearch
         size={20}
@@ -13,7 +14,7 @@ function Search({ options = [], placeholder = 'Search...' }) {
         style={{
           position: 'absolute',
           zIndex: 10,
-          top: '1rem',
+          bottom: '1rem',
           left: '0.8rem'
         }}
       />

@@ -1,10 +1,17 @@
 import styled from '@emotion/styled';
 import { colors } from '../../styles/colors';
+import { typography } from '../../styles/typography';
 
 export const SearchWrapper = styled.div`
   display: flex;
+  flex-direction: column;
+  gap: 4px;
   position: relative;
   width: 100%;
+`;
+export const SearchLabel = styled.p`
+  color: ${colors.gray};
+  ${typography.overline};
 `;
 
 export const searchStyles = {
