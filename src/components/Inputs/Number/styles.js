@@ -1,3 +1,4 @@
+import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { colors } from '../../../styles/colors';
 import { typography } from '../../../styles/typography';
@@ -17,7 +18,13 @@ export const Label = styled.label`
   position: relative;
   & input[type='number'] {
     padding: 0.8rem;
-    padding-left: 3.6rem;
+    ${({ theme }) => {
+      if (theme.icon) {
+        return css`
+          padding-left: 3.6rem;
+        `;
+      }
+    }}
     border: 1px solid ${colors.pink};
     border-radius: 0.8rem;
     color: ${colors.darkGray};
@@ -25,5 +32,6 @@ export const Label = styled.label`
     &:focus {
       border: 1px solid ${colors.darkPink};
     }
+    max-height: 38px;
   }
 `;
