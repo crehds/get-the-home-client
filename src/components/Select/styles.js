@@ -67,7 +67,7 @@ export const colourStyles = {
   }),
   valueContainer: (styles) => ({
     ...styles,
-    '& > div:first-child': {
+    '& > div:first-of-type': {
       maxWidth: 'fit-content'
     }
   }),
