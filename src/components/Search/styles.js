@@ -2,38 +2,42 @@ import styled from '@emotion/styled';
 import { colors } from '../../styles/colors';
 import { typography } from '../../styles/typography';
 
-export const SelectWrapper = styled.div`
+export const SearchWrapper = styled.div`
   display: flex;
-  position: relative;
-  width: 100%;
   flex-direction: column;
   gap: 4px;
+  position: relative;
+  max-width: 60rem;
+  width: 100%;
 `;
-
-export const SelectLabel = styled.label`
-  ${typography.overline};
+export const SearchLabel = styled.p`
   color: ${colors.gray};
+  ${typography.overline};
 `;
 
-export const colourStyles = {
+export const searchStyles = {
   container: (styles) => ({
     ...styles,
     width: '100%',
-    fontSize: '16px',
-    minWidth: '120px'
-  }),
-  control: (styles, { isSelected }) => ({
-    ...styles,
-    color: isSelected ? colors.lightGray : colors.darkGray,
-    borderColor: colors.pink,
-    boxShadow: 'none',
-    '&:hover': {
-      borderColor: colors.darkPink
-    },
     '&:active': {
-      borderColor: colors.darkPink
+      borderColor: 'green'
     }
   }),
+  control: (styles, { isSelected }) => {
+    return {
+      ...styles,
+      paddingLeft: 24,
+      color: isSelected ? colors.lightGray : colors.darkGray,
+      borderColor: colors.pink,
+      boxShadow: 'none',
+      '&:hover': {
+        borderColor: colors.darkPink
+      },
+      '&:active': {
+        borderColor: colors.darkPink
+      }
+    };
+  },
   option: (styles, { data, isDisabled, isFocused, isSelected }) => {
     return {
       ...styles,
@@ -63,29 +67,7 @@ export const colourStyles = {
     };
   },
   indicatorSeparator: (styles) => ({
+    ...styles,
     display: 'none'
-  }),
-  valueContainer: (styles) => ({
-    ...styles,
-    '& > div:first-of-type': {
-      maxWidth: 'fit-content'
-    }
-  }),
-  multiValue: (styles) => ({
-    ...styles,
-    backgroundColor: colors.shallowPink,
-    maxWidth: '99px'
-  }),
-  multiValueLabel: (styles, { data }) => ({
-    ...styles,
-    color: data.color
-  }),
-  multiValueRemove: (styles, { data }) => ({
-    ...styles,
-    color: colors.gray,
-    ':hover': {
-      backgroundColor: 'none',
-      color: colors.darkGray
-    }
   })
 };

@@ -4,11 +4,19 @@ import { SmallButton, DefaultButton, LargeButton } from './styles';
 const BUTTONS = {
   small: <SmallButton />,
   default: <DefaultButton />,
-  LargeButton: <LargeButton />
+  large: <LargeButton />
 };
 
-function Button({ size, type = '' }) {
-  return cloneElement(BUTTONS[size], { className: type });
+function Button({ size, type = '', value, icon }) {
+  return cloneElement(BUTTONS[size], {
+    className: type,
+    children: (
+      <>
+        {icon}
+        {value}
+      </>
+    )
+  });
 }
 
 export default Button;

@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { colors } from '../../styles/colors';
+import { typography } from '../../styles/typography';
 
 export const SmallButton = styled.button`
   display: flex;
@@ -7,6 +8,9 @@ export const SmallButton = styled.button`
   border-radius: 0.8rem;
   padding: 0.4rem 0.8rem;
   color: ${colors.gray};
+  border: none;
+  ${typography.button};
+  align-items: center;
   &.primary {
     background-color: ${colors.pink};
     color: ${colors.white};
@@ -43,6 +47,9 @@ export const DefaultButton = styled.button`
   gap: 0.8rem;
   padding: 0.8rem 1.6rem;
   color: ${colors.gray};
+  border: none;
+  align-items: center;
+  ${typography.button};
   &.primary {
     background-color: ${colors.pink};
     color: ${colors.white};
@@ -76,9 +83,12 @@ export const DefaultButton = styled.button`
 export const LargeButton = styled.button`
   border-radius: 1.6rem;
   display: flex;
+  align-items: center;
   gap: 0.8rem;
   color: ${colors.gray};
   padding: 1.6rem 2.4rem;
+  border: none;
+  ${typography.button};
   &.primary {
     background-color: ${colors.pink};
     color: ${colors.white};

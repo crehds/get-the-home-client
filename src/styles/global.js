@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
 import { colors } from './colors';
-import { fonts } from './typography';
+import { typography } from './typography';
 
 export const reset = css`
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Montserrat:wght@300;400;500&display=swap');
@@ -74,6 +74,15 @@ export const reset = css`
     text-decoration: none;
   }
 
+  input[type='number'] {
+    -moz-appearance: textfield;
+  }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+
   /* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
   @media (prefers-reduced-motion: reduce) {
     html:focus-within {
@@ -94,8 +103,8 @@ export const global = css`
   body {
     font-size: 1rem;
     line-height: 1.5rem;
-    font-family: ${fonts.secondary};
+    ${typography.body.md};
     color: ${colors.darkGray};
-    background-color: ${colors.white};
+    background-color: rgba(235, 235, 235, 0.8);
   }
 `;
