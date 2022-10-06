@@ -7,6 +7,7 @@ export const SearchWrapper = styled.div`
   flex-direction: column;
   gap: 4px;
   position: relative;
+  max-width: 60rem;
   width: 100%;
 `;
 export const SearchLabel = styled.p`
