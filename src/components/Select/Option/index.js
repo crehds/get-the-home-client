@@ -1,16 +1,18 @@
 import { components } from 'react-select';
+import Check from '../../Inputs/Check';
 import { OptionWrapper } from './styles';
 
 function Option(props) {
   return (
     <OptionWrapper>
       <components.Option {...props}>
-        <input
-          type='checkbox'
+        <Check
           checked={props.isSelected}
           onChange={() => null}
+          id={props.label}
+          name={props.label}
+          value={props.label}
         />
-        <label>{props.label}</label>
       </components.Option>
     </OptionWrapper>
   );

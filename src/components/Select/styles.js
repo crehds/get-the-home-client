@@ -17,6 +17,7 @@ export const colourStyles = {
   container: (styles) => ({
     ...styles,
     width: '100%',
+    fontSize: '16px',
     '&:active': {
       borderColor: 'green'
     }
@@ -61,6 +62,9 @@ export const colourStyles = {
       }
     };
   },
+  indicatorSeparator: (styles) => ({
+    display: 'none'
+  }),
   valueContainer: (styles) => ({
     ...styles,
     '& > div:first-child': {
