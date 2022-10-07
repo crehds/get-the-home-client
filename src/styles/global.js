@@ -109,6 +109,6 @@ export const global = css`
     line-height: 1.5rem;
     ${typography.body.md};
     color: ${colors.darkGray};
-    background-color: rgba(235, 235, 235, 0.8);
+    // background-color: rgba(235, 235, 235, 0.8);
   }
 `;

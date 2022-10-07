@@ -1,5 +1,6 @@
 import alliProfile from '../../../assets/images/alliProfile.jpg';
 import marioProfile from '../../../assets/images/marioProfile.jpeg';
+import carlosProfile from '../../../assets/images/carlosProfile.png';
 
 const dataTeam = [
   {
@@ -10,8 +11,7 @@ const dataTeam = [
   },
   {
     name: 'Carlos Rodriguez',
-    photo:
-      'https://fueradeseries.com/wp-content/uploads/2021/06/rick-y-morty-estreno-temporada-5.jpg',
+    photo: carlosProfile,
     githubLink: 'https://github.com/crehds',
     linkedinLink:
       'https://www.linkedin.com/in/carlos-eduardo-rodriguez-huerta-362ab716a/'

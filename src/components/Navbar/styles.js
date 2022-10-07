@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { colors } from '../../styles/colors';
 import { typography } from '../../styles/typography';
 import { shadow } from '../../styles/utils';
 
@@ -8,6 +9,7 @@ export const WrapperHeader = styled.div`
   ${shadow.elevation1}
   display:flex;
   justify-content: center;
+  background: ${colors.white};
   position: relative;
 `;
 export const WrapperNav = styled.div`

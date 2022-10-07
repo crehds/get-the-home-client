@@ -20,47 +20,63 @@ function Navbar({ user }) {
         {!user ? (
           <WrapperUl>
             <div>
-              <Button size="default" type="ghost">
-                <BiSearch size="2.1rem" />
-                Find a home
-              </Button>
+              <Button
+                size="default"
+                type="ghost"
+                value={'Find a home'}
+                icon={<BiSearch size="2.1rem" />}
+              />
             </div>
-            <Button size="default" type="secondary">
-              <RiUserAddLine size="2rem" />
-              Join
-            </Button>
-            <Button size="default" type="primary">
-              <RiUserReceived2Line size="2rem" />
-              Login
-            </Button>
+            <Button
+              size="default"
+              type="secondary"
+              value={'Join'}
+              icon={<RiUserAddLine size="2rem" />}
+            />
+            <Button
+              size="default"
+              type="primary"
+              value={'Login'}
+              icon={<RiUserReceived2Line size="2rem" />}
+            />
           </WrapperUl>
         ) : (
           <WrapperUl>
             <div>
-              <Button size="default" type="ghost">
-                <BiSearch size="2.1rem" />
-                Find a home
-              </Button>
+              <Button
+                size="default"
+                type="ghost"
+                value={'Find a home'}
+                icon={<BiSearch size="2.1rem" />}
+              />
             </div>
-            <Button size="default" type="secondary">
-              <BiLogOutCircle size="2rem" />
-              Logout
-            </Button>
+            <Button
+              size="default"
+              type="secondary"
+              value={'Logout'}
+              icon={<BiLogOutCircle size="2rem" />}
+            />
             {user.role === 'seeker' ? (
-              <Button size="default" type="primary">
-                <AiFillHeart size="2rem" />
-                Saved Properties
-              </Button>
+              <Button
+                size="default"
+                type="primary"
+                value={'Saved Properties'}
+                icon={<AiFillHeart size="2rem" />}
+              />
             ) : (
-              <Button size="default" type="primary">
-                <RiHome8Line size="2rem" />
-                My Properties
-              </Button>
+              <Button
+                size="default"
+                type="primary"
+                value={'My Properties'}
+                icon={<RiHome8Line size="2rem" />}
+              />
             )}
-            <Button size="default" type="primary">
-              <RiUserLine size="2rem" />
-              Profile
-            </Button>
+            <Button
+              size="default"
+              type="primary"
+              value={'Profile'}
+              icon={<RiUserLine size="2rem" />}
+            />
           </WrapperUl>
         )}
       </WrapperNav>

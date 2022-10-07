@@ -89,36 +89,3 @@ export const WrapperTeam = styled.div`
   }
 `;
 
-//* Footer
-export const WrapperFooter = styled.div`
-  background: ${colors.background};
-  display: flex;
-  justify-content: center;
-  & > div {
-    width: 120rem;
-    padding: 1.6rem 3.1rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    & > div.copyRight {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-  }
-`;
-export const WrapperSourceCode = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.4rem;
-  & div {
-    display: flex;
-  }
-  & > div {
-    gap: 1.8rem;
-    & > div {
-      gap: 1rem;
-    }
-  }
-`;
