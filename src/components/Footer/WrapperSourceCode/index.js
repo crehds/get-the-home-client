@@ -2,9 +2,9 @@ import React from 'react';
 import { DiReact, DiRuby } from 'react-icons/di';
 import { WrapperSourceCode } from './styles';
 
-function SourceCode() {
+function SourceCode({ pathname }) {
   return (
-    <WrapperSourceCode>
+    <WrapperSourceCode pathname={pathname}>
       <p>Source Code</p>
       <div>
         <div>

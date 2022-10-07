@@ -13,7 +13,7 @@ export const WrapperHeader = styled.div`
   position: relative;
 `;
 export const WrapperNav = styled.div`
-  width: 70%;
+  width: calc(100vw - 30.4rem);
   display: flex;
   justify-content: space-between;
   align-items: center;

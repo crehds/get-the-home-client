@@ -12,6 +12,7 @@ function App() {
         <Route index element={<Landing />} />
         <Route path="/create-property" element={<CreateProperty />} />
       </Routes>
+      <Footer />
     </>
   );
 }
