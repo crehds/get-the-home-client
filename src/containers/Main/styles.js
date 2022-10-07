@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-export const Container = styled.div`
+export const Container = styled.main`
   ${({ theme }) => {
     if (theme.withPadding) {
       return css`
