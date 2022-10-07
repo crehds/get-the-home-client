@@ -16,6 +16,7 @@ export const reset = css`
 
   html {
     font-size: 62.5%;
+    cursor: default;
   }
 
   /* Remove default margin */
@@ -69,7 +70,10 @@ export const reset = css`
   select {
     font: inherit;
   }
-
+  a,
+  button {
+    cursor: pointer;
+  }
   a {
     text-decoration: none;
   }
@@ -105,6 +109,6 @@ export const global = css`
     line-height: 1.5rem;
     ${typography.body.md};
     color: ${colors.darkGray};
-    background-color: rgba(235, 235, 235, 0.8);
+    // background-color: rgba(235, 235, 235, 0.8);
   }
 `;

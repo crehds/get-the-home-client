@@ -8,10 +8,10 @@ function DeveloperCard({ avatar, name, githubLink, linkedinLink }) {
       <Img src={avatar}></Img>
       <p>{name}</p>
       <div>
-        <a href={githubLink} target="blank">
+        <a href={githubLink} target="_blank" rel="noreferrer">
           <AiFillGithub size={'2rem'}></AiFillGithub>
         </a>
-        <a href={linkedinLink} target="blank">
+        <a href={linkedinLink} target="_blank" rel="noreferrer">
           <AiOutlineLinkedin size={'2rem'}></AiOutlineLinkedin>
         </a>
       </div>

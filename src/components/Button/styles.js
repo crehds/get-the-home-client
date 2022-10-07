@@ -19,6 +19,7 @@ export const SmallButton = styled.button`
     }
   }
   &.secondary {
+    background-color: ${colors.white};
     border: 1px solid ${colors.pink};
     &:hover {
       color: ${colors.darkGray};
@@ -27,6 +28,7 @@ export const SmallButton = styled.button`
     }
   }
   &.ghost {
+    background-color: ${colors.white};
     color: ${colors.gray};
     &:hover {
       background-color: ${colors.shallowPink};
@@ -56,6 +58,7 @@ export const DefaultButton = styled.button`
     }
   }
   &.secondary {
+    background-color: ${colors.white};
     border: 1px solid ${colors.pink};
     &:hover {
       color: ${colors.darkGray};
@@ -64,6 +67,7 @@ export const DefaultButton = styled.button`
     }
   }
   &.ghost {
+    background-color: ${colors.white};
     color: ${colors.gray};
     &:hover {
       background-color: ${colors.shallowPink};
@@ -93,6 +97,7 @@ export const LargeButton = styled.button`
     }
   }
   &.secondary {
+    background-color: ${colors.white};
     border: 1px solid ${colors.pink};
     &:hover {
       color: ${colors.darkGray};
@@ -101,6 +106,7 @@ export const LargeButton = styled.button`
     }
   }
   &.ghost {
+    background-color: ${colors.white};
     color: ${colors.gray};
     &:hover {
       background-color: ${colors.shallowPink};
