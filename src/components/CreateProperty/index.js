@@ -7,7 +7,6 @@ import Search from '../Search';
 import Select from '../Select';
 import UploadImage from '../UploadImage';
 import {
-  CreatePropertyWrapper,
   CrPrForm,
   CrPrPets,
   CrPrPhotos,
@@ -37,64 +36,62 @@ const ABOUT_CAPTION =
 
 function CreateProperty() {
   return (
-    <CreatePropertyWrapper>
-      <CrPrForm>
-        <h1>Create a Property listing</h1>
-        <Choice options={CHOICE_OPTIONS} label='operation type' />
-        <Search placeholder='start typing yo autocomplete' label={'Address'} />
-        <Number label={'price'} placeholder={'2000'} />
-        <CrPrProperty>
-          <p>property type</p>
-          <div>
-            <Check id={'apartment'} value='Apartment' name='aparment' />
-            <Check id={'apartment'} value='House' name='house' />
-          </div>
-        </CrPrProperty>
-        <CrPrSpaces>
-          <div>
-            <Select labelValue={'Bedrooms'} options={SPACE_OPTIONS} />
-          </div>
-          <div>
-            <Select labelValue={'Bathrooms'} options={SPACE_OPTIONS} />
-          </div>
-          <div>
-            <Number label={'area in m2'} icon={false} />
-          </div>
-        </CrPrSpaces>
-        <CrPrPets>
-          <Check value='Pets Allowed' />
-          <p>{PETS_CAPTION}</p>
-        </CrPrPets>
-
-        <TextArea
-          label='about this property'
-          placeholder={'My appartment is great because...'}
-          caption={ABOUT_CAPTION}
-        />
-
-        <CrPrPhotos>
-          <h3>Photos</h3>
-          <div>
-            <UploadImage
-              captionText={'Only images, max 5MB'}
-              labelValue={'upload as many photos as you wish'}
-            />
-          </div>
-          <div>
-            <CrPrPhPreviewEmpty>
-              <p>No photos yet</p>
-            </CrPrPhPreviewEmpty>
-          </div>
-        </CrPrPhotos>
+    <CrPrForm>
+      <h1>Create a Property listing</h1>
+      <Choice options={CHOICE_OPTIONS} label='operation type' />
+      <Search placeholder='start typing yo autocomplete' label={'Address'} />
+      <Number label={'price'} placeholder={'2000'} />
+      <CrPrProperty>
+        <p>property type</p>
         <div>
-          <Button
-            size='large'
-            type='primary'
-            value={'publish property listing'}
+          <Check id={'apartment'} value='Apartment' name='aparment' />
+          <Check id={'apartment'} value='House' name='house' />
+        </div>
+      </CrPrProperty>
+      <CrPrSpaces>
+        <div>
+          <Select labelValue={'Bedrooms'} options={SPACE_OPTIONS} />
+        </div>
+        <div>
+          <Select labelValue={'Bathrooms'} options={SPACE_OPTIONS} />
+        </div>
+        <div>
+          <Number label={'area in m2'} icon={false} />
+        </div>
+      </CrPrSpaces>
+      <CrPrPets>
+        <Check value='Pets Allowed' />
+        <p>{PETS_CAPTION}</p>
+      </CrPrPets>
+
+      <TextArea
+        label='about this property'
+        placeholder={'My appartment is great because...'}
+        caption={ABOUT_CAPTION}
+      />
+
+      <CrPrPhotos>
+        <h3>Photos</h3>
+        <div>
+          <UploadImage
+            captionText={'Only images, max 5MB'}
+            labelValue={'upload as many photos as you wish'}
           />
         </div>
-      </CrPrForm>
-    </CreatePropertyWrapper>
+        <div>
+          <CrPrPhPreviewEmpty>
+            <p>No photos yet</p>
+          </CrPrPhPreviewEmpty>
+        </div>
+      </CrPrPhotos>
+      <div>
+        <Button
+          size='large'
+          type='primary'
+          value={'publish property listing'}
+        />
+      </div>
+    </CrPrForm>
   );
 }
 

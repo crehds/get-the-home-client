@@ -2,10 +2,6 @@ import styled from '@emotion/styled';
 import { colors } from '../../styles/colors';
 import { typography } from '../../styles/typography';
 
-export const CreatePropertyWrapper = styled.div`
-  padding: 0 12rem;
-`;
-
 export const CrPrForm = styled.form`
   padding: 3.2rem;
   display: flex;
