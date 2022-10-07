@@ -8,6 +8,15 @@ export const InfoWrapper = styled.div`
 
 export const ImgsCarousel = styled.div`
   padding: 6.4rem;
+  & .carousel {
+    margin: auto;
+    & figure {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      height: 384px;
+    }
+  }
 `;
 
 export const Details = styled.div`

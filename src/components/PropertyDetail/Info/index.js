@@ -1,3 +1,5 @@
+import Carousel from 'nuka-carousel';
+import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import { RiMoneyDollarCircleLine } from 'react-icons/ri';
 import { BiBed, BiBath } from 'react-icons/bi';
 import {
@@ -10,14 +12,48 @@ import {
   MapDetails
 } from './styles';
 import { colors } from '../../../styles/colors';
+import property1 from '../../../assets/properties/photo1.png';
+import property2 from '../../../assets/properties/photo1.png';
+import property3 from '../../../assets/properties/photo1.png';
+import property4 from '../../../assets/properties/photo1.png';
 
 const ABOUT_MESSAGE =
   '3 Bedroom/2 Bathroom apartment available for ASAP move-in!\n\nApartment features hardwood floors throughout, virtual doorman, Central AC/heat, dishwasher and a microwave.\n\nThe kitchen has custom cabinetry and the living room is big enough to fit a dinner table, a couch and a tv set up.';
 
+const images = [property1, property2, property3, property4];
 function Info() {
   return (
     <InfoWrapper>
-      <ImgsCarousel>Carousel</ImgsCarousel>
+      <ImgsCarousel>
+        <Carousel
+          renderCenterLeftControls={({ previousSlide }) => (
+            <IoIosArrowBack
+              color='gray'
+              size={24}
+              onClick={previousSlide}
+              style={{ cursor: 'pointer' }}
+            />
+          )}
+          renderCenterRightControls={({ nextSlide }) => (
+            <IoIosArrowForward
+              color='gray'
+              size={24}
+              onClick={nextSlide}
+              style={{ cursor: 'pointer' }}
+            />
+          )}
+          animation='zoom'
+          renderBottomCenterControls={() => null}
+          className='carousel'
+          autoplay
+        >
+          {images.map((src, i) => (
+            <figure key={`image-${i}`}>
+              <img src={src} alt='property' />
+            </figure>
+          ))}
+        </Carousel>
+      </ImgsCarousel>
       <Details>
         <GeneralDetails>
           <div>
