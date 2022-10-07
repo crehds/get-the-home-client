@@ -3,7 +3,6 @@ import { colors } from '../../styles/colors';
 import { typography } from '../../styles/typography';
 
 export const CrPrForm = styled.form`
-  padding: 3.2rem;
   display: flex;
   flex-direction: column;
   gap: 1.6rem;
