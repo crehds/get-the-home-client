@@ -1,6 +1,7 @@
 import alliProfile from '../../../assets/images/alliProfile.jpg';
 import marioProfile from '../../../assets/images/marioProfile.jpeg';
 import carlosProfile from '../../../assets/images/carlosProfile.png';
+import rodrigoProfile from '../../../assets/images/rodrigoProfile.jpeg';
 
 const dataTeam = [
   {
@@ -31,8 +32,7 @@ const dataTeam = [
   },
   {
     name: 'Rodrigo Lopez',
-    photo:
-      'https://fueradeseries.com/wp-content/uploads/2021/06/rick-y-morty-estreno-temporada-5.jpg',
+    photo: rodrigoProfile,
     githubLink: 'https://github.com/RodrigoLopez160795',
     linkedinLink: 'https://www.linkedin.com/in/rodrigolopeza/'
   }
