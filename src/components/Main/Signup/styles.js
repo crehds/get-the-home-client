@@ -14,7 +14,6 @@ export const Wrapper = styled.div`
     text-align: center;
     display: flex;
     justify-content: center;
-    gap: 5.7rem;
     & > div {
       display: flex;
       flex-direction: column;
