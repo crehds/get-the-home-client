@@ -12,6 +12,7 @@ export const Wrapper = styled.div`
   gap: 0.8rem;
   border-radius: 0.8rem;
   ${shadow.elevation1};
+  background: ${colors.white};
   & div {
     width: 100%;
     display: flex;

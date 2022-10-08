@@ -11,12 +11,15 @@ import Button from '../Button';
 import { WrapperHeader, WrapperNav, WrapperUl } from './styles';
 import logo from '../../assets/images/logo.svg';
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Navbar({ user }) {
   return (
     <WrapperHeader>
       <WrapperNav>
-        <img src={logo} alt="logo" />
+        <Link to="/">
+          <img src={logo} alt="logo" />
+        </Link>
         {!user ? (
           <WrapperUl>
             <div>
@@ -27,12 +30,14 @@ function Navbar({ user }) {
                 icon={<BiSearch size="2.1rem" />}
               />
             </div>
-            <Button
-              size="default"
-              type="secondary"
-              value={'Join'}
-              icon={<RiUserAddLine size="2rem" />}
-            />
+            <Link to="/signup">
+              <Button
+                size="default"
+                type="secondary"
+                value={'Join'}
+                icon={<RiUserAddLine size="2rem" />}
+              />
+            </Link>
             <Button
               size="default"
               type="primary"
