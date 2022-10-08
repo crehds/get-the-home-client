@@ -1,8 +1,7 @@
 import SignupCard from '../../SignupCard';
 import lanlord from '../../../assets/images/landlord.svg';
 import homeSeeker from '../../../assets/images/homeSeeker.svg';
-import { Wrapper, WrapperBackground } from './styles';
-import { colors } from '../../../styles/colors';
+import { Wrapper } from './styles';
 
 const roles = [
   {

@@ -4,7 +4,7 @@ import Footer from './components/Footer';
 import Landing from './components/Main/Landing';
 import Signup from './components/Main/Signup';
 import Navbar from './components/Navbar';
-const user = { role: 'landlord' };
+
 function App() {
   return (
     <>
