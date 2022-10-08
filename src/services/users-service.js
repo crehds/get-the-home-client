@@ -1,22 +1,20 @@
-import { tokenKey } from "../config";
-import apiFetch from "./api-fetch";
+import { tokenKey } from '../config';
+import apiFetch from './api-fetch';
 
-export function createUser(userData){
-  return apiFetch("/users", {body: userData})
-  .then(u =>{
-    const {token, ...user} = u;
+export function createUser(userData) {
+  return apiFetch('/users', { body: userData }).then((u) => {
+    const { token, ...user } = u;
     sessionStorage.setItem(tokenKey, token);
     return user;
-  })
+  });
 }
 
-export function getUser(){
-  return apiFetch("/profile")
-  .then(u =>{
-    const {token, ...user} = u;
+export function getUser() {
+  return apiFetch('/profile').then((u) => {
+    const { token, ...user } = u;
     // sessionStorage.setItem(tokenKey, token);
     return user;
-  })
+  });
 }
 
 export async function updateUser(data) {
@@ -24,6 +22,6 @@ export async function updateUser(data) {
     body: data,
     method: 'PATCH'
   });
-  sessionStorage.setItem(userData, JSON.stringify({ ...user }));
+  sessionStorage.setItem(user, JSON.stringify({ ...user }));
   return user;
 }
