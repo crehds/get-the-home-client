@@ -7,14 +7,15 @@ const BUTTONS = {
   large: <LargeButton />
 };
 
-function Button({ size, type = '', value, icon, onClick }) {
+function Button({ size, type = '', value, icon, onClick, sideIcon = 'left' }) {
   return cloneElement(BUTTONS[size], {
     onClick,
     className: type,
     children: (
       <>
-        {icon}
+        {sideIcon === 'left' && icon}
         {value}
+        {sideIcon === 'right' && icon}
       </>
     )
   });
