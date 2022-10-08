@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { ChoiceLabel, ChoiceWrapper, Label, LabelsWrapper } from './styles';
 
-function Choice({ label, options }) {
+function Choice({ id, label, options }) {
   const [choice, setChoice] = useState(options[0].value);
 
   const handleChoice = (newChoice) => {
@@ -14,11 +14,11 @@ function Choice({ label, options }) {
         {options.map((option, i) => (
           <Label
             theme={{ active: option.value === choice }}
-            htmlFor={option.value}
+            htmlFor={`${id}-${option.value}`}
             key={`choice-${i}`}
           >
             <input
-              id={option.value}
+              id={`${id}-${option.value}`}
               type='checkbox'
               value={option.value}
               checked={option.value === choice}
