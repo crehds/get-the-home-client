@@ -32,6 +32,9 @@ export const Label = styled.label`
     &:focus {
       border: 1px solid ${colors.darkPink};
     }
+    &::placeholder {
+      color: ${colors.lightGray};
+    }
     max-height: 38px;
   }
 `;
