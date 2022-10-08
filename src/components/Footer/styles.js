@@ -10,7 +10,7 @@ export const WrapperFooter = styled.div`
     ${typography.body.s};
   }
   background: ${colors.background};
-  border: 0.18rem solid ${colors.darkPink};
+  border-top: 0.18rem solid ${colors.darkPink};
   display: flex;
   justify-content: center;
   & > div {
@@ -55,6 +55,8 @@ export const WrapperTeam = styled.div`
   & > div {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    row-gap: 0.4rem;
+    column-gap: 3.5rem;
     & > div {
       display: flex;
       align-items: center;
