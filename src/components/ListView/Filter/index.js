@@ -75,6 +75,7 @@ function Filter({ properties }) {
           value='more'
           icon={<IoIosArrowDown size={24} />}
           onClick={handleButton}
+          sideIcon='right'
         />
         {isOpen && (
           <FilterModal posX={posX || '0'}>{handleModal(modal)}</FilterModal>
