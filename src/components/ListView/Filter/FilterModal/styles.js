@@ -14,6 +14,7 @@ export const Wrapper = styled.div`
   border-radius: 0.8rem;
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
   color: ${colors.gray};
+  z-index: 10;
   & button {
     align-self: flex-end;
   }
