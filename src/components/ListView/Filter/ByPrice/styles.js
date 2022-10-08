@@ -11,7 +11,6 @@ export const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
     gap: 0.4rem;
-
     & p {
       ${typography.overline};
     }
@@ -24,8 +23,5 @@ export const Wrapper = styled.div`
         max-width: 102px;
       }
     }
-  }
-  & button {
-    align-self: flex-end;
   }
 `;
