@@ -1,3 +1,4 @@
+import Section from '../../containers/Section';
 import Button from '../Button';
 import Choice from '../Choice';
 import Check from '../Inputs/Check';
@@ -7,7 +8,6 @@ import Search from '../Search';
 import Select from '../Select';
 import UploadImage from '../UploadImage';
 import {
-  CreatePropertyWrapper,
   CrPrForm,
   CrPrPets,
   CrPrPhotos,
@@ -37,7 +37,7 @@ const ABOUT_CAPTION =
 
 function CreateProperty() {
   return (
-    <CreatePropertyWrapper>
+    <Section>
       <CrPrForm>
         <h1>Create a Property listing</h1>
         <Choice options={CHOICE_OPTIONS} label='operation type' />
@@ -94,7 +94,7 @@ function CreateProperty() {
           />
         </div>
       </CrPrForm>
-    </CreatePropertyWrapper>
+    </Section>
   );
 }
 
