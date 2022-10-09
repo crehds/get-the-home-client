@@ -22,6 +22,10 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/signup-form" element={<SignupForm />} />
           <Route path='/list-view' element={<ListView />} />
+          <Route path='/myproperties' element={<MyProperties />} />
+          <Route path='/myproperties/:status' element={<MyProperties />} />
+          <Route path='/savedproperties' element={<SavedProperties />} />
+          <Route path='/savedproperties/:status' element={<SavedProperties />} />
         </Routes>
       </Main>
       <Footer />
