@@ -3,9 +3,10 @@ import PropertyCard from '../../PropertyCard';
 import { Wrapper } from './styles';
 
 function Carousel({ slides }) {
+  const newSlides = [[...slides]];
   return (
     <NukaCarousel>
-      {slides.map((cards, i) => (
+      {newSlides.map((cards, i) => (
         <Wrapper>
           {cards.map((card) => (
             <PropertyCard {...card} />
