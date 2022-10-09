@@ -7,6 +7,8 @@ import Signup from './components/Main/Signup';
 import SignupForm from './components/Main/Signup/SignupForm';
 import Navbar from './components/Navbar';
 import PropertyDetail from './components/PropertyDetail';
+import MyProperties from './components/MyProperties';
+import SavedProperties from './components/SavedProperties';
 import Main from './containers/Main';
 
 function App() {
