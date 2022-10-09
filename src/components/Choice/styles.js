@@ -36,7 +36,7 @@ export const Label = styled.label`
       `;
     }
   }}
-  & input[type='checkbox'] {
+  & input[type='radio'] {
     appearance: none;
     position: absolute;
     &:checked {

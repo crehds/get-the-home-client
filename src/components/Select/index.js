@@ -9,7 +9,8 @@ function Select({
   options = [],
   multiple = false,
   labelValue,
-  placeholder = 'Select...'
+  placeholder = 'Select...',
+  handleChange
 }) {
   return (
     <SelectWrapper>
@@ -23,6 +24,7 @@ function Select({
         isMulti={multiple}
         styles={colourStyles}
         placeholder={placeholder}
+        onChange={(choice) => handleChange(name, choice.value)}
       />
     </SelectWrapper>
   );

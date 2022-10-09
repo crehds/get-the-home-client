@@ -7,10 +7,19 @@ const BUTTONS = {
   large: <LargeButton />
 };
 
-function Button({ size, type = '', value, icon, onClick, sideIcon = 'left' }) {
+function Button({
+  buttonType,
+  size,
+  type = '',
+  value,
+  icon,
+  onClick,
+  sideIcon = 'left'
+}) {
   return cloneElement(BUTTONS[size], {
     onClick,
     className: type,
+    type: buttonType,
     children: (
       <>
         {sideIcon === 'left' && icon}

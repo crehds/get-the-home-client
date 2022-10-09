@@ -17,7 +17,7 @@ function Number({
         ...values,
         price: {
           ...values.price,
-          min: (target.value),
+          min: target.value,
         },
       }));
     } else {
@@ -25,7 +25,7 @@ function Number({
         ...values,
         price: {
           ...values.price,
-          max: (target.value),
+          max: target.value,
         },
       }));
     }
@@ -45,7 +45,6 @@ function Number({
           type='number'
           id={id}
           name={name}
-          value={value}
           placeholder={placeholder}
           onChange={handleChange}
         />
