@@ -8,7 +8,10 @@ import Filter from './Filter';
 import { ListViewWrapper, PropertiesFound } from './styles';
 
 // const slides = [[...cards], [...cards], [...cards]];
-const initialState = { price: { min: 0, max: Infinity } };
+const initialState = {
+  price: { min: 0, max: Infinity },
+  property_type: { apartment: false, house: false },
+};
 function ListView() {
   // let slides = [];
 
@@ -43,20 +46,22 @@ function ListView() {
   //   // newProperti;
   // }, [filters]);
 
-  console.log(filters)
+  console.log(filters);
 
   function filterByPrice(properties, price) {
     if (price.min === 0 && price.max === Infinity) return properties;
-    if (price.min === "" && price.max === "") return properties;
-    if (price.min === "") return properties.filter((property) => property.price <= price.max);
-    if (price.max === "") return properties.filter((property) => property.price >= price.min);
-    
-    return properties.filter((property) =>
-      property.price >= price.min && property.price <= price.max
+    if (price.min === '' && price.max === '') return properties;
+    if (price.min === '')
+      return properties.filter((property) => property.price <= price.max);
+    if (price.max === '')
+      return properties.filter((property) => property.price >= price.min);
+
+    return properties.filter(
+      (property) => property.price >= price.min && property.price <= price.max
     );
   }
 
-  const propertiesByPrice = filterByPrice(properties, filters.price)
+  const propertiesByPrice = filterByPrice(properties, filters.price);
 
   return (
     <Section>

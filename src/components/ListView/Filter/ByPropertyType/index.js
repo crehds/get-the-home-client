@@ -8,8 +8,8 @@ function ByPropertyType() {
       <Type>
         <Label>property type</Label>
         <div>
-          <Check value={'Houses'} />
-          <Check value={'Apartments'} />
+          <Check value={'house'} />
+          <Check value={'apartment'} />
         </div>
       </Type>
       <Button size='small' type='primary' value='done' />
