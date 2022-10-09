@@ -1,28 +1,30 @@
+import { Field } from 'formik';
 import { useState } from 'react';
 import { ChoiceLabel, ChoiceWrapper, Label, LabelsWrapper } from './styles';
 
-function Choice({ id, label, options }) {
+function Choice({ id, label, options, name }) {
   const [choice, setChoice] = useState(options[0].value);
 
   const handleChoice = (newChoice) => {
     return setChoice(newChoice);
   };
+
   return (
     <ChoiceWrapper>
       <ChoiceLabel>{label}</ChoiceLabel>
-      <LabelsWrapper>
+      <LabelsWrapper role='group' aria-labelledby='checkbox-group'>
         {options.map((option, i) => (
           <Label
             theme={{ active: option.value === choice }}
             htmlFor={`${id}-${option.value}`}
             key={`choice-${i}`}
+            onClick={() => handleChoice(option.value)}
           >
-            <input
+            <Field
               id={`${id}-${option.value}`}
-              type='checkbox'
+              type='radio'
               value={option.value}
-              checked={option.value === choice}
-              onChange={() => handleChoice(option.value)}
+              name={name}
             />
             <p>{option.label}</p>
           </Label>
