@@ -7,6 +7,8 @@ import Signup from './components/Main/Signup';
 import SignupForm from './components/Main/Signup/SignupForm';
 import Navbar from './components/Navbar';
 import PropertyDetail from './components/PropertyDetail';
+import MyProperties from './components/MyProperties';
+import SavedProperties from './components/SavedProperties';
 import Main from './containers/Main';
 
 function App() {
@@ -22,6 +24,10 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/signup-form" element={<SignupForm />} />
           <Route path='/list-view' element={<ListView />} />
+          <Route path='/myproperties' element={<MyProperties />} />
+          <Route path='/myproperties/:status' element={<MyProperties />} />
+          <Route path='/savedproperties' element={<SavedProperties />} />
+          <Route path='/savedproperties/:status' element={<SavedProperties />} />
         </Routes>
       </Main>
       <Footer />
