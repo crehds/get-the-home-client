@@ -61,16 +61,37 @@ function ListView() {
     );
   }
 
+  function filterByPropertyType(properties, property_type) {
+    if (property_type.apartment === false && property_type.house === false)
+      return properties;
+
+    if (property_type.apartment === true && property_type.house === true)
+      return properties;
+    if (property_type.apartment === true) {
+      return properties.filter(
+        (property) => property.property_type === 'apartment'
+      );
+    } else if (property_type.house === true) {
+      return properties.filter(
+        (property) => property.property_type === 'house'
+      );
+    }
+  }
+
   const propertiesByPrice = filterByPrice(properties, filters.price);
+  const propertiesByPropertyType = filterByPropertyType(
+    propertiesByPrice,
+    filters.property_type
+  );
 
   return (
     <Section>
       <ListViewWrapper>
         <Filter handler={setFilters} values={filters} />
         <PropertiesFound>
-          {propertiesByPrice.length} Properties found
+          {propertiesByPropertyType.length} Properties found
         </PropertiesFound>
-        <Carousel slides={propertiesByPrice} />
+        <Carousel slides={propertiesByPropertyType} />
       </ListViewWrapper>
     </Section>
   );

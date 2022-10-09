@@ -13,12 +13,14 @@ function ByPrice({ onChange, values }) {
             placeholder='min'
             value={values.price['min']}
             functionChange={onChange}
+            name='min'
           />
           <AiOutlineMinus size={24} />
           <Number
             placeholder='max'
             value={values.price['max']}
             functionChange={onChange}
+            name='max'
           />
         </div>
       </div>

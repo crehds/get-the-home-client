@@ -12,23 +12,13 @@ function Number({
   functionChange,
 }) {
   function handleChange({ target }) {
-    if (placeholder === 'min') {
-      functionChange((values) => ({
-        ...values,
-        price: {
-          ...values.price,
-          min: target.value,
-        },
-      }));
-    } else {
-      functionChange((values) => ({
-        ...values,
-        price: {
-          ...values.price,
-          max: target.value,
-        },
-      }));
-    }
+    functionChange((values) => ({
+      ...values,
+      price: {
+        ...values.price,
+        [target.name]: target.value,
+      },
+    }));
   }
   return (
     <NumberWrapper>
