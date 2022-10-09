@@ -1,12 +1,41 @@
+import { useEffect, useRef } from 'react';
 import { BiSearch } from 'react-icons/bi';
-import CreateSelect from 'react-select';
+import CreateSelect, { components } from 'react-select';
 import { colors } from '../../styles/colors';
 import { SearchLabel, searchStyles, SearchWrapper } from './styles';
+import './styles.css';
 
-function Search({ label, options = [], placeholder = 'Search...' }) {
+function Search({
+  label,
+  options = [],
+  placeholder = 'Search...',
+  name,
+  handleChange,
+  setFieldValue,
+  value
+}) {
+  // const Input = ({ ...props }) => <components.Input {...props} ref={useRef} />;
+  const autoComplete = useRef();
+  const inputRef = useRef();
+  const mapOptions = {
+    componentRestrictions: { country: 'pe' },
+    fields: ['address_components', 'geometry', 'icon', 'name'],
+    types: ['establishment']
+  };
+
+  useEffect(() => {
+    autoComplete.current = new window.google.maps.places.Autocomplete(
+      inputRef.current,
+      mapOptions
+    );
+    autoComplete.current.addListener('place_changed', async function () {
+      const place = await autoComplete.current.getPlace();
+      setFieldValue('address', place.name);
+    });
+  }, []);
   return (
     <SearchWrapper>
-      {label && <SearchLabel>{label}</SearchLabel>}
+      {label && <SearchLabel htmlFor='search-address'>{label}</SearchLabel>}
       {/* //todo  icon should be a child of select  */}
       <BiSearch
         size={20}
@@ -18,13 +47,21 @@ function Search({ label, options = [], placeholder = 'Search...' }) {
           left: '0.8rem'
         }}
       />
-      <CreateSelect
+      {/* //*Code for migrate to react-select */}
+      {/* <CreateSelect
         options={options}
         styles={searchStyles}
         isClearable
         closeMenuOnSelect={false}
         hideSelectedOptions={false}
-        placeholder={placeholder}
+        components={{ Input }}
+      /> */}
+      <input
+        id='search-address'
+        type='text'
+        ref={inputRef}
+        name={name}
+        onChange={handleChange}
       />
     </SearchWrapper>
   );
