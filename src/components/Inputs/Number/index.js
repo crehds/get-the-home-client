@@ -17,7 +17,7 @@ function Number({
         ...values,
         price: {
           ...values.price,
-          min: parseInt(target.value),
+          min: (target.value),
         },
       }));
     } else {
@@ -25,7 +25,7 @@ function Number({
         ...values,
         price: {
           ...values.price,
-          max: parseInt(target.value),
+          max: (target.value),
         },
       }));
     }

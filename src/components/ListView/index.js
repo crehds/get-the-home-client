@@ -8,7 +8,7 @@ import Filter from './Filter';
 import { ListViewWrapper, PropertiesFound } from './styles';
 
 // const slides = [[...cards], [...cards], [...cards]];
-const initialState = { price: { min: '', max: '' } };
+const initialState = { price: { min: 0, max: Infinity } };
 function ListView() {
   // let slides = [];
 
@@ -30,26 +30,42 @@ function ListView() {
       .then(() => setRenderProperties(properties))
       .catch(console.log);
   }, []);
-  useEffect(() => {
-    const newProperties = properties.filter(
-      (property) =>
-        property.price >= filters.price['min'] &&
-        property.price <= filters.price['max']
+  // useEffect(() => {
+  //   const newProperties = properties.filter(
+  //     (property) =>
+  //       property.price >= filters.price['min'] &&
+  //       property.price <= filters.price['max']
+  //   );
+  //   console.log(newProperties);
+  //   // newProperties.length > 0 && setRenderProperties(newProperties);
+  //   (filters.price.min === 0 && filters.price.max === Infinity || filters.price.min === "" && filters.price.max === "")? setRenderProperties(properties) : setRenderProperties(newProperties);
+  //   // newProperties.length === 0 && setRenderProperties([]);
+  //   // newProperti;
+  // }, [filters]);
+
+  console.log(filters)
+
+  function filterByPrice(properties, price) {
+    if (price.min === 0 && price.max === Infinity) return properties;
+    if (price.min === "" && price.max === "") return properties;
+    if (price.min === "") return properties.filter((property) => property.price <= price.max);
+    if (price.max === "") return properties.filter((property) => property.price >= price.min);
+    
+    return properties.filter((property) =>
+      property.price >= price.min && property.price <= price.max
     );
-    console.log(newProperties);
-    newProperties.length > 0 && setRenderProperties(newProperties);
-    newProperties.length === 0 && setRenderProperties([]);
-    newProperti;
-  }, [filters]);
+  }
+
+  const propertiesByPrice = filterByPrice(properties, filters.price)
 
   return (
     <Section>
       <ListViewWrapper>
         <Filter handler={setFilters} values={filters} />
         <PropertiesFound>
-          {renderProperties.length} Properties found
+          {propertiesByPrice.length} Properties found
         </PropertiesFound>
-        <Carousel slides={renderProperties} />
+        <Carousel slides={propertiesByPrice} />
       </ListViewWrapper>
     </Section>
   );
