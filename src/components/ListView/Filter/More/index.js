@@ -15,7 +15,7 @@ function More({onChange,  values }) {
     <Wrapper>
       <Check value='Pets Allowed' onChange={handleChangePets} />
       <div>
-        <p>salary range</p>
+        <p>area range</p>
         <div>
           <Number placeholder='min' icon={false} 
             value={values.area['min']}

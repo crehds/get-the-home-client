@@ -12,7 +12,8 @@ const initialState = {
   price: { min: 0, max: Infinity },
   property_type: { apartment: false, house: false },
   pets: false, 
-  area: { min: 0, max: Infinity }
+  area: { min: 0, max: Infinity },
+  operation_type: ""
 };
 function ListView() {
   // let slides = [];

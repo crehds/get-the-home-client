@@ -83,7 +83,7 @@ function Filter({ handler, values }) {
           </FilterModal>
         )}
       </FilterButtons>
-      <Select options={TYPE_OPERATION} />
+      <Select options={TYPE_OPERATION} onSelect={handler} values={values}/>
     </FilterWrapper>
   );
 }

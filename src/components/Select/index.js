@@ -10,8 +10,11 @@ function Select({
   multiple = false,
   labelValue,
   placeholder = 'Select...',
-  handleChange
+  handleChange,
+  onSelect,
+  values
 }) {
+  
   return (
     <SelectWrapper>
       <SelectLabel htmlFor={name}>{labelValue}</SelectLabel>
