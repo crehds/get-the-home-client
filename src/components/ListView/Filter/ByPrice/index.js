@@ -14,6 +14,7 @@ function ByPrice({ onChange, values }) {
             value={values.price['min']}
             functionChange={onChange}
             name='min'
+            id={"price"}
           />
           <AiOutlineMinus size={24} />
           <Number
@@ -21,6 +22,7 @@ function ByPrice({ onChange, values }) {
             value={values.price['max']}
             functionChange={onChange}
             name='max'
+            id={"price"}
           />
         </div>
       </div>

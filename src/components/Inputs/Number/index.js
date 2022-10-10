@@ -12,13 +12,23 @@ function Number({
   functionChange,
 }) {
   function handleChange({ target }) {
-    functionChange((values) => ({
-      ...values,
-      price: {
-        ...values.price,
-        [target.name]: target.value,
-      },
-    }));
+    if (id==="price") {
+      functionChange((values) => ({
+        ...values,
+        price: {
+          ...values.price,
+          [target.name]: target.value,
+        },
+      }))
+    } else {
+      functionChange((values) => ({
+        ...values,
+        area: {
+          ...values.area,
+          [target.name]: target.value,
+        },
+      }))
+    };
   }
   return (
     <NumberWrapper>

@@ -11,6 +11,8 @@ import { ListViewWrapper, PropertiesFound } from './styles';
 const initialState = {
   price: { min: 0, max: Infinity },
   property_type: { apartment: false, house: false },
+  pets: false, 
+  area: { min: 0, max: Infinity }
 };
 function ListView() {
   // let slides = [];
@@ -48,17 +50,28 @@ function ListView() {
 
   console.log(filters);
 
-  function filterByPrice(properties, price) {
-    if (price.min === 0 && price.max === Infinity) return properties;
-    if (price.min === '' && price.max === '') return properties;
-    if (price.min === '')
-      return properties.filter((property) => property.price <= price.max);
-    if (price.max === '')
-      return properties.filter((property) => property.price >= price.min);
+  function filterByRange(properties, range, attribute) {
+    if (range.min === 0 && range.max === Infinity) return properties;
+    if (range.min === '' && range.max === '') return properties;
+    if (attribute === "price") {
+      if (range.min === '')
+        return properties.filter((property) => property.price <= range.max);
+      if (range.max === '')
+        return properties.filter((property) => property.price >= range.min);
 
-    return properties.filter(
-      (property) => property.price >= price.min && property.price <= price.max
+      return properties.filter(
+        (property) => property.price >= range.min && property.price <= range.max
+      );
+    } else {
+      if (range.min === '')
+      return properties.filter((property) => property.area <= range.max);
+      if (range.max === '')
+        return properties.filter((property) => property.area >= range.min);
+
+      return properties.filter(
+        (property) => property.area >= range.min && property.area <= range.max
     );
+    }
   }
 
   function filterByPropertyType(properties, property_type) {
@@ -78,20 +91,37 @@ function ListView() {
     }
   }
 
-  const propertiesByPrice = filterByPrice(properties, filters.price);
+  function filterByPets(properties, pets) {
+    if (pets === false ) return properties;
+    console.log(properties)
+
+     if (pets === true) {
+      return properties.filter(
+        (property) => property.pets === true
+      );
+    }
+  }
+
+  const propertiesByPrice = filterByRange(properties, filters.price, "price");
   const propertiesByPropertyType = filterByPropertyType(
     propertiesByPrice,
     filters.property_type
   );
+  const propertiesByPets = filterByPets(
+    propertiesByPropertyType,
+    filters.pets
+  );
+  const propertiesByRange = filterByRange(propertiesByPets, filters.area, "area");
+
 
   return (
     <Section>
       <ListViewWrapper>
         <Filter handler={setFilters} values={filters} />
         <PropertiesFound>
-          {propertiesByPropertyType.length} Properties found
+          {propertiesByRange.length} Properties found
         </PropertiesFound>
-        <Carousel slides={propertiesByPropertyType} />
+        <Carousel slides={propertiesByRange} />
       </ListViewWrapper>
     </Section>
   );
