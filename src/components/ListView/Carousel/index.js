@@ -7,9 +7,9 @@ function Carousel({ slides }) {
   return (
     <NukaCarousel>
       {newSlides.map((cards, i) => (
-        <Wrapper>
-          {cards.map((card) => (
-            <PropertyCard {...card} />
+        <Wrapper key={`list-view-slide-${i}`}>
+          {cards.map((card, j) => (
+            <PropertyCard key={`list-view-card-${i}-${j}`} {...card} />
           ))}
         </Wrapper>
       ))}
