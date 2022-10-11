@@ -3,15 +3,27 @@ import Button from '../../../Button';
 import Number from '../../../Inputs/Number';
 import { Wrapper } from './styles';
 
-function ByPrice() {
+function ByPrice({ onChange, values }) {
   return (
     <Wrapper>
       <div>
         <p>salary range</p>
         <div>
-          <Number placeholder='min' />
+          <Number
+            placeholder='min'
+            value={values.price['min']}
+            functionChange={onChange}
+            name='min'
+            id={"price"}
+          />
           <AiOutlineMinus size={24} />
-          <Number placeholder='max' />
+          <Number
+            placeholder='max'
+            value={values.price['max']}
+            functionChange={onChange}
+            name='max'
+            id={"price"}
+          />
         </div>
       </div>
       <Button size='small' value='done' type='primary' />

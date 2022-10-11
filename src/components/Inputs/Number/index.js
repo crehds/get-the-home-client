@@ -2,7 +2,34 @@ import { RiMoneyDollarCircleLine } from 'react-icons/ri';
 import { colors } from '../../../styles/colors';
 import { Label, NumberLabel, NumberWrapper } from './styles';
 
-function Number({ id, icon = true, name, placeholder, label, handleChange }) {
+function Number({
+  id,
+  icon = true,
+  name,
+  value,
+  placeholder,
+  label,
+  functionChange,
+}) {
+  function handleChange({ target }) {
+    if (id==="price") {
+      functionChange((values) => ({
+        ...values,
+        price: {
+          ...values.price,
+          [target.name]: target.value,
+        },
+      }))
+    } else {
+      functionChange((values) => ({
+        ...values,
+        area: {
+          ...values.area,
+          [target.name]: target.value,
+        },
+      }))
+    };
+  }
   return (
     <NumberWrapper>
       {label && <NumberLabel>{label}</NumberLabel>}
