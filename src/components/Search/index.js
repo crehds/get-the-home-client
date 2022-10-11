@@ -1,8 +1,10 @@
 import { useEffect, useRef } from 'react';
 import { BiSearch } from 'react-icons/bi';
-import CreateSelect, { components } from 'react-select';
+import { useAuth } from '../../context/auth-context';
+import { usePlaces } from '../../context/places-context';
+// import CreateSelect, { components } from 'react-select';
 import { colors } from '../../styles/colors';
-import { SearchLabel, searchStyles, SearchWrapper } from './styles';
+import { SearchLabel, SearchWrapper } from './styles';
 import './styles.css';
 
 function Search({
@@ -15,6 +17,8 @@ function Search({
   value
 }) {
   // const Input = ({ ...props }) => <components.Input {...props} ref={useRef} />;
+  const { googleAPI } = usePlaces();
+
   const autoComplete = useRef();
   const inputRef = useRef();
   const mapOptions = {
@@ -22,17 +26,19 @@ function Search({
     fields: ['address_components', 'geometry', 'icon', 'name'],
     types: ['establishment']
   };
-
   useEffect(() => {
-    autoComplete.current = new window.google.maps.places.Autocomplete(
-      inputRef.current,
-      mapOptions
-    );
-    autoComplete.current.addListener('place_changed', async function () {
-      const place = await autoComplete.current.getPlace();
-      setFieldValue('address', place.name);
-    });
-  }, []);
+    if (googleAPI) {
+      autoComplete.current = new googleAPI.maps.places.Autocomplete(
+        inputRef.current,
+        mapOptions
+      );
+      autoComplete.current.addListener('place_changed', async function () {
+        const place = await autoComplete.current.getPlace();
+        setFieldValue('address', place.name);
+      });
+    }
+  }, [googleAPI]);
+
   return (
     <SearchWrapper>
       {label && <SearchLabel htmlFor='search-address'>{label}</SearchLabel>}
