@@ -51,6 +51,7 @@ function CreateForm() {
         options={CHOICE_OPTIONS}
         label='operation type'
         name='operation_type'
+        handleChange={handleChange}
       />
       <Search
         placeholder='start typing yo autocomplete'

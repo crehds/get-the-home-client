@@ -1,8 +1,8 @@
-import { Field } from 'formik';
+// import { Field } from 'formik';
 import { useState } from 'react';
 import { ChoiceLabel, ChoiceWrapper, Label, LabelsWrapper } from './styles';
 
-function Choice({ id, label, options, name }) {
+function Choice({ id, label, options, name, handleChange }) {
   const [choice, setChoice] = useState(options[0].value);
 
   const handleChoice = (newChoice) => {
@@ -20,11 +20,13 @@ function Choice({ id, label, options, name }) {
             key={`choice-${i}`}
             onClick={() => handleChoice(option.value)}
           >
-            <Field
+            <input
               id={`${id}-${option.value}`}
               type='radio'
               value={option.value}
+              defaultChecked={option.value === choice}
               name={name}
+              onChange={handleChange}
             />
             <p>{option.label}</p>
           </Label>
