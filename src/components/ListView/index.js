@@ -11,6 +11,8 @@ import { ListViewWrapper, PropertiesFound } from './styles';
 const initialState = {
   price: { min: 0, max: Infinity },
   property_type: { apartment: false, house: false },
+  bedrooms: "",
+  bathrooms: "",
   pets: false,
   area: { min: 0, max: Infinity },
   operation_type: ''
@@ -36,6 +38,8 @@ function ListView() {
       .then(() => setRenderProperties(properties))
       .catch(console.log);
   }, []);
+
+  console.log(filters)
 
   function filterByRange(properties, range, attribute) {
     if (range.min === 0 && range.max === Infinity) return properties;
@@ -87,26 +91,48 @@ function ListView() {
     }
   }
 
+  function filterByNumber(properties, number, attribute) {
+    if (number === "") return properties;
+    if (attribute === 'bedrooms') {
+      return properties.filter(
+        (property) => property.bedrooms === parseInt(number));
+    } else {
+      return properties.filter(
+        (property) => property.bathrooms === parseInt(number));
+    }
+  }
+
   const propertiesByPrice = filterByRange(properties, filters.price, 'price');
   const propertiesByPropertyType = filterByPropertyType(
     propertiesByPrice,
     filters.property_type
   );
   const propertiesByPets = filterByPets(propertiesByPropertyType, filters.pets);
-  const propertiesByRange = filterByRange(
+  const propertiesByArea = filterByRange(
     propertiesByPets,
     filters.area,
     'area'
   );
+  const propertiesByBedrooms = filterByNumber(
+    propertiesByArea,
+    filters.bedrooms,
+    'bedrooms'
+  );
+  const propertiesByBathrooms = filterByNumber(
+    propertiesByBedrooms,
+    filters.bathrooms,
+    'bathrooms'
+  );
+  console.log(properties)
 
   return (
     <Section>
       <ListViewWrapper>
         <Filter handler={setFilters} values={filters} />
         <PropertiesFound>
-          {propertiesByRange.length} Properties found
+          {propertiesByBathrooms.length} Properties found
         </PropertiesFound>
-        <Carousel slides={propertiesByRange} />
+        <Carousel slides={propertiesByBathrooms} />
       </ListViewWrapper>
     </Section>
   );

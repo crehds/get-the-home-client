@@ -2,10 +2,22 @@
 import { useState } from 'react';
 import { ChoiceLabel, ChoiceWrapper, Label, LabelsWrapper } from './styles';
 
-function Choice({ id, label, options, name, handleChange }) {
+function Choice({ id, label, options, name, handleChange, onChange, values }) {
   const [choice, setChoice] = useState(options[0].value);
 
   const handleChoice = (newChoice) => {
+    console.log(newChoice)
+    if (id==="beds") {
+      onChange((values) => ({
+        ...values,
+        bedrooms: newChoice}
+      ));
+    } else {
+      onChange((values) => ({
+        ...values,
+        bathrooms: newChoice}
+      ));
+    }
     return setChoice(newChoice);
   };
 
