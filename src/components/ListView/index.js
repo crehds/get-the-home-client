@@ -15,7 +15,8 @@ const initialState = {
   bathrooms: "",
   pets: false,
   area: { min: 0, max: Infinity },
-  operation_type: ''
+  operation_type: '',
+  query: ""
 };
 function ListView() {
   // let slides = [];
@@ -23,6 +24,7 @@ function ListView() {
   const [properties, setProperties] = useState([]);
   const [renderProperties, setRenderProperties] = useState([]);
   const [filters, setFilters] = useState(initialState);
+
   useEffect(() => {
     getProperties()
       .then((data) => {

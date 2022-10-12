@@ -14,7 +14,7 @@ function BySpaces({onChange, values}) {
   return (
     <Wrapper>
       <Choice id='beds' label='beds' options={options} onChange={onChange} values={values} />
-      <Choice id='baths' label='baths' options={options} onChange={onChange}/>
+      <Choice id='baths' label='baths' options={options} onChange={onChange} values={values}/>
       <Button size='small' value='done' type='primary' />
     </Wrapper>
   );

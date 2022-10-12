@@ -15,6 +15,7 @@ function Select({
   values
 }) {
   
+  console.log()
   return (
     <SelectWrapper>
       <SelectLabel htmlFor={name}>{labelValue}</SelectLabel>

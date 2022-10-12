@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { ChoiceLabel, ChoiceWrapper, Label, LabelsWrapper } from './styles';
 
 function Choice({ id, label, options, name, handleChange, onChange, values }) {
-  const [choice, setChoice] = useState(options[0].value);
+  const [choice, setChoice] = useState(id=== "beds"? values.bedrooms : values.bathrooms);
 
   const handleChoice = (newChoice) => {
     console.log(newChoice)
