@@ -48,9 +48,17 @@ function Filter({ handler, values }) {
     setPosX(`${buttonContainer.offsetLeft / 2.8}px`);
   }, []);
 
+  function handleQuery(event) {
+
+    handler((values) => ({
+      ...values,
+      searchQuery: event.target.value
+    }));
+  }
+
   return (
     <FilterWrapper>
-      <Search setFieldValue={setField} handleChange={handler}/>
+      <Search setFieldValue={setField} handleChange={handleQuery}/>
       <FilterButtons id='filter-buttons'>
         <Button
           size='default'

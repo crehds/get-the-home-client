@@ -39,13 +39,7 @@ function Search({
     }
   }, [googleAPI]);
 
-  function handleQuery(event) {
 
-    handleChange((values) => ({
-      ...values,
-      searchQuery: event.target.value
-    }));
-  }
 
   return (
     <SearchWrapper>
@@ -75,7 +69,7 @@ function Search({
         type='text'
         ref={inputRef}
         name={name}
-        onChange={handleQuery}
+        onChange={handleChange}
       />
     </SearchWrapper>
   );
