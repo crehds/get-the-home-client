@@ -3,11 +3,10 @@ import Button from '../../../Button';
 import Number from '../../../Inputs/Number';
 import { Wrapper } from './styles';
 
-function ByPrice({ onChange, values }) {
+function ByPrice({ onChange, values, setIsOpen }) {
 
 
   function handleChange({ target }) {
-    console.log(values.price["min"])
     onChange((values) => ({
       ...values,
       price: {
@@ -39,7 +38,7 @@ function ByPrice({ onChange, values }) {
           />
         </div>
       </div>
-      <Button size='small' value='done' type='primary' />
+      <Button size='small' value='done' type='primary' onClick={() => setIsOpen(false)}/>
     </Wrapper>
   );
 }

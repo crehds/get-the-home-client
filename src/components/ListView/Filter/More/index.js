@@ -4,7 +4,7 @@ import Check from '../../../Inputs/Check';
 import Number from '../../../Inputs/Number';
 import { Wrapper } from './styles';
 
-function More({onChange,  values }) {
+function More({onChange,  values, setIsOpen }) {
 
   function handleChangePets({ target }) {
     onChange((values) => ({
@@ -41,7 +41,7 @@ function More({onChange,  values }) {
             id={"area"} />
         </div>
       </div>
-      <Button size='small' type='primary' value='done' />
+      <Button size='small' type='primary' value='done' onClick={() => setIsOpen(false)}/>
     </Wrapper>
   );
 }

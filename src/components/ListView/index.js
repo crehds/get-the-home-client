@@ -9,12 +9,12 @@ import { ListViewWrapper, PropertiesFound } from './styles';
 
 // const slides = [[...cards], [...cards], [...cards]];
 const initialState = {
-  price: { min: 0, max: Infinity },
+  price: { min: "", max: "" },
   property_type: { apartment: false, house: false },
   bedrooms: "",
   bathrooms: "",
   pets: false,
-  area: { min: 0, max: Infinity },
+  area: { min: "", max: "" },
   operation_type: '',
   searchQuery: ""
 };

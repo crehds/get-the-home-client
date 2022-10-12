@@ -10,7 +10,7 @@ const options = [
   { value: '3', label: '3+' },
   { value: '4', label: '4+' }
 ];
-function BySpaces({onChange, values}) {
+function BySpaces({onChange, values, setIsOpen}) {
   const [choice1, setChoice1] = useState(values.bedrooms);
   const [choice2, setChoice2] = useState(values.bathrooms);
 
@@ -20,13 +20,13 @@ function BySpaces({onChange, values}) {
           bedrooms: choice1,
           bathrooms: choice2
       }))
-    }, [choice1, choice2]);
+    }, [choice1, choice2, onChange]);
 
   return (
     <Wrapper>
       <Choice id='beds' label='beds' options={options} choice={choice1} setChoice={setChoice1}  />
       <Choice id='baths' label='baths' options={options} choice={choice2} setChoice={setChoice2} />
-      <Button size='small' value='done' type='primary' />
+      <Button size='small' value='done' type='primary' onClick={() => setIsOpen(false)}/>
     </Wrapper>
   );
 }

@@ -23,8 +23,8 @@ const MODALS = {
   more: <More />,
 };
 
-function handleModal(modal, handler, values) {
-  return cloneElement(MODALS[modal], { onChange: handler, values: values });
+function handleModal(modal, handler, values, setIsOpen) {
+  return cloneElement(MODALS[modal], { onChange: handler, values: values, setIsOpen: setIsOpen });
 }
 
 function Filter({ handler, values }) {
@@ -88,7 +88,7 @@ function Filter({ handler, values }) {
         />
         {isOpen && (
           <FilterModal posX={posX || '0'}>
-            {handleModal(modal, handler, values)}
+            {handleModal(modal, handler, values, setIsOpen)}
           </FilterModal>
         )}
       </FilterButtons>
