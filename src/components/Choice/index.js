@@ -1,9 +1,9 @@
 // import { Field } from 'formik';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ChoiceLabel, ChoiceWrapper, Label, LabelsWrapper } from './styles';
 
-function Choice({ id, label, options, name, handleChange, onChange, values }) {
-  const [choice, setChoice] = useState(options[0].value);
+function Choice({ id, label, options, name, handleChange, onChange, values, setChoice, choice }) {
+
 
   const handleChoice = (newChoice) => {
     // console.log(newChoice)

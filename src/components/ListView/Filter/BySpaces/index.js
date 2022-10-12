@@ -1,5 +1,6 @@
 import Button from '../../../Button';
 import Choice from '../../../Choice';
+import { useState, useEffect } from 'react';
 import { Wrapper } from './styles';
 
 const options = [
@@ -10,11 +11,21 @@ const options = [
   { value: '4', label: '4+' }
 ];
 function BySpaces({onChange, values}) {
+  const [choice1, setChoice1] = useState(values.bedrooms);
+  const [choice2, setChoice2] = useState(values.bathrooms);
+
+    useEffect(() => {
+      onChange((values) => ({
+          ...values,
+          bedrooms: choice1,
+          bathrooms: choice2
+      }))
+    }, [choice1, choice2]);
 
   return (
     <Wrapper>
-      <Choice id='beds' label='beds' options={options} onChange={onChange} values={values} />
-      <Choice id='baths' label='baths' options={options} onChange={onChange} values={values}/>
+      <Choice id='beds' label='beds' options={options} choice={choice1} setChoice={setChoice1}  />
+      <Choice id='baths' label='baths' options={options} choice={choice2} setChoice={setChoice2} />
       <Button size='small' value='done' type='primary' />
     </Wrapper>
   );

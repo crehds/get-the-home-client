@@ -42,6 +42,8 @@ const ABOUT_CAPTION =
 function CreateForm() {
   const { handleSubmit, handleChange, setFieldValue } = useFormikContext();
   const [preview, setPreview] = useState([]);
+  const [choice, setChoice] = useState(CHOICE_OPTIONS[0].value);
+
 
   return (
     <CrPrForm onSubmit={handleSubmit}>
@@ -52,6 +54,7 @@ function CreateForm() {
         label='operation type'
         name='operation_type'
         handleChange={handleChange}
+        choice={choice} setChoice={setChoice}
       />
       <Search
         placeholder='start typing yo autocomplete'
