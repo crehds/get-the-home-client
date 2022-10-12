@@ -10,26 +10,9 @@ function Number({
   placeholder,
   label,
   functionChange,
+  handleChange
 }) {
-  function handleChange({ target }) {
-    if (id==="price") {
-      functionChange((values) => ({
-        ...values,
-        price: {
-          ...values.price,
-          [target.name]: target.value,
-        },
-      }))
-    } else {
-      functionChange((values) => ({
-        ...values,
-        area: {
-          ...values.area,
-          [target.name]: target.value,
-        },
-      }))
-    };
-  }
+
   return (
     <NumberWrapper>
       {label && <NumberLabel>{label}</NumberLabel>}
@@ -44,6 +27,7 @@ function Number({
         <input
           type='number'
           id={id}
+          value={value}
           name={name}
           placeholder={placeholder}
           onChange={handleChange}

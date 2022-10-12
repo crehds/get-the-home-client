@@ -5,27 +5,38 @@ import Number from '../../../Inputs/Number';
 import { Wrapper } from './styles';
 
 function More({onChange,  values }) {
+
   function handleChangePets({ target }) {
     onChange((values) => ({
       ...values,
       pets: target.checked
     }));
   }
+
+  function handleChangeArea({target}) {
+    onChange((values) => ({
+      ...values,
+      area: {
+        ...values.area,
+        [target.name]: target.value,
+      },
+    }))
+  }
   return (
     <Wrapper>
-      <Check value='Pets Allowed' onChange={handleChangePets} />
+      <Check value='Pets Allowed' onChange={handleChangePets} checked={values.pets === true}/>
       <div>
         <p>area range</p>
         <div>
           <Number placeholder='min' icon={false} 
             value={values.area['min']}
-            functionChange={onChange}
+            handleChange={handleChangeArea}
             name='min'
             id={"area"}/>
           <AiOutlineMinus size={24} />
           <Number placeholder='max' icon={false} 
             value={values.area['max']}
-            functionChange={onChange}
+            handleChange={handleChangeArea}
             name='max'
             id={"area"} />
         </div>

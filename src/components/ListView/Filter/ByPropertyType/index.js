@@ -2,7 +2,7 @@ import Button from '../../../Button';
 import Check from '../../../Inputs/Check';
 import { Label, Type, Wrapper } from './styles';
 
-function ByPropertyType({ onChange }) {
+function ByPropertyType({ onChange, values }) {
   function handleChange({ target }) {
     onChange((values) => ({
       ...values,
@@ -17,8 +17,8 @@ function ByPropertyType({ onChange }) {
       <Type>
         <Label>property type</Label>
         <div>
-          <Check value={'house'} onChange={handleChange} />
-          <Check value={'apartment'} onChange={handleChange} />
+          <Check value={'house'} onChange={handleChange} checked={values.property_type["house"] === true}/>
+          <Check value={'apartment'} onChange={handleChange} checked={values.property_type["apartment"] === true}/>
         </div>
       </Type>
       <Button size='small' type='primary' value='done' />

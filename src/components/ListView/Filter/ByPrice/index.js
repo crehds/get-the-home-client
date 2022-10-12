@@ -4,6 +4,19 @@ import Number from '../../../Inputs/Number';
 import { Wrapper } from './styles';
 
 function ByPrice({ onChange, values }) {
+
+
+  function handleChange({ target }) {
+    console.log(values.price["min"])
+    onChange((values) => ({
+      ...values,
+      price: {
+        ...values.price,
+        [target.name]: target.value,
+        },
+    }));
+  }
+
   return (
     <Wrapper>
       <div>
@@ -12,7 +25,7 @@ function ByPrice({ onChange, values }) {
           <Number
             placeholder='min'
             value={values.price['min']}
-            functionChange={onChange}
+            handleChange={handleChange}
             name='min'
             id={"price"}
           />
@@ -20,7 +33,7 @@ function ByPrice({ onChange, values }) {
           <Number
             placeholder='max'
             value={values.price['max']}
-            functionChange={onChange}
+            handleChange={handleChange}
             name='max'
             id={"price"}
           />

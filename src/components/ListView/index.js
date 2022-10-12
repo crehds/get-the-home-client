@@ -1,8 +1,8 @@
-import { set } from 'date-fns';
+// import { set } from 'date-fns';
 import { useEffect, useState } from 'react';
 import Section from '../../containers/Section';
 import { getProperties } from '../../services/unlogged-service';
-import { cards } from './cards';
+// import { cards } from './cards';
 import Carousel from './Carousel';
 import Filter from './Filter';
 import { ListViewWrapper, PropertiesFound } from './styles';
@@ -22,7 +22,6 @@ function ListView() {
   // let slides = [];
 
   const [properties, setProperties] = useState([]);
-  const [renderProperties, setRenderProperties] = useState([]);
   const [filters, setFilters] = useState(initialState);
 
   useEffect(() => {
@@ -37,8 +36,6 @@ function ListView() {
           }))
         );
       })
-      .then(() => setRenderProperties(properties))
-      .catch(console.log);
   }, []);
 
   console.log(filters)
@@ -134,7 +131,6 @@ function ListView() {
     propertiesByBathrooms,
     filters.searchQuery
   );
-  console.log(properties)
 
   return (
     <Section>

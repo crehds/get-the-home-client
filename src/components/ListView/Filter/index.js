@@ -31,7 +31,7 @@ function Filter({ handler, values }) {
   const [isOpen, setIsOpen] = useState(false);
   const [modal, setModal] = useState('price');
   const [posX, setPosX] = useState(null);
-  const [field, setField] = useState("")
+
   const handleButton = (e) => {
     const text = e.currentTarget.textContent;
     if (text === modal) return setIsOpen(!isOpen);
@@ -58,7 +58,7 @@ function Filter({ handler, values }) {
 
   return (
     <FilterWrapper>
-      <Search setFieldValue={setField} handleChange={handleQuery}/>
+      <Search  handleChange={handleQuery}/>
       <FilterButtons id='filter-buttons'>
         <Button
           size='default'
