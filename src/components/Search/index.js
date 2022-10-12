@@ -39,6 +39,14 @@ function Search({
     }
   }, [googleAPI]);
 
+  function handleQuery(event) {
+
+    handleChange((values) => ({
+      ...values,
+      searchQuery: event.target.value
+    }));
+  }
+
   return (
     <SearchWrapper>
       {label && <SearchLabel htmlFor='search-address'>{label}</SearchLabel>}
@@ -67,7 +75,7 @@ function Search({
         type='text'
         ref={inputRef}
         name={name}
-        onChange={handleChange}
+        onChange={handleQuery}
       />
     </SearchWrapper>
   );

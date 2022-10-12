@@ -48,10 +48,9 @@ function Filter({ handler, values }) {
     setPosX(`${buttonContainer.offsetLeft / 2.8}px`);
   }, []);
 
-  console.log(field)
   return (
     <FilterWrapper>
-      <Search setFieldValue={setField}/>
+      <Search setFieldValue={setField} handleChange={handler}/>
       <FilterButtons id='filter-buttons'>
         <Button
           size='default'
@@ -85,7 +84,7 @@ function Filter({ handler, values }) {
           </FilterModal>
         )}
       </FilterButtons>
-      <Select options={TYPE_OPERATION} onSelect={handler} values={values}/>
+      <Select options={TYPE_OPERATION} handleChange={handler} values={values}/>
     </FilterWrapper>
   );
 }

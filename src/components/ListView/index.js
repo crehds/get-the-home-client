@@ -16,7 +16,7 @@ const initialState = {
   pets: false,
   area: { min: 0, max: Infinity },
   operation_type: '',
-  query: ""
+  searchQuery: ""
 };
 function ListView() {
   // let slides = [];
@@ -86,7 +86,6 @@ function ListView() {
 
   function filterByPets(properties, pets) {
     if (pets === false) return properties;
-    console.log(properties);
 
     if (pets === true) {
       return properties.filter((property) => property.pets === true);
@@ -102,6 +101,12 @@ function ListView() {
       return properties.filter(
         (property) => property.bathrooms === parseInt(number));
     }
+  }
+
+  function filterByAddress(properties, searchQuery) {
+    if (searchQuery === "") return properties;
+
+    return properties.filter((property) => property.address.toLowerCase().includes(searchQuery.toLowerCase()));
   }
 
   const propertiesByPrice = filterByRange(properties, filters.price, 'price');
@@ -125,6 +130,10 @@ function ListView() {
     filters.bathrooms,
     'bathrooms'
   );
+  const propertiesByAddress = filterByAddress(
+    propertiesByBathrooms,
+    filters.searchQuery
+  );
   console.log(properties)
 
   return (
@@ -132,9 +141,9 @@ function ListView() {
       <ListViewWrapper>
         <Filter handler={setFilters} values={filters} />
         <PropertiesFound>
-          {propertiesByBathrooms.length} Properties found
+          {propertiesByAddress.length} Properties found
         </PropertiesFound>
-        <Carousel slides={propertiesByBathrooms} />
+        <Carousel slides={propertiesByAddress} />
       </ListViewWrapper>
     </Section>
   );
