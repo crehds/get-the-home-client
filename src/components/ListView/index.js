@@ -35,8 +35,6 @@ function ListView() {
     });
   }, []);
 
-  console.log(filters);
-
   function filterByRange(properties, range, attribute) {
     if (range.min === 0 && range.max === Infinity) return properties;
     if (range.min === '' && range.max === '') return properties;
@@ -132,6 +130,22 @@ function ListView() {
     propertiesByBathrooms,
     filters.searchQuery
   );
+  let propertiesArray = [];
+  function splitProperties() {
+    let propertySplit = [];
+    let i = 0;
+    while (i < propertiesFiltered.length) {
+      propertySplit = [];
+      for (let j = 0; j < 9; j++) {
+        j < propertiesFiltered.length &&
+          propertySplit.push(propertiesFiltered[j]);
+      }
+      propertiesArray.push(propertySplit);
+      i += 9;
+    }
+  }
+  splitProperties();
+  console.log(propertiesArray);
 
   return (
     <Section>
@@ -140,7 +154,7 @@ function ListView() {
         <PropertiesFound>
           {propertiesFiltered.length} Properties found
         </PropertiesFound>
-        <Carousel slides={propertiesFiltered} />
+        <Carousel slides={propertiesArray} />
       </ListViewWrapper>
     </Section>
   );
