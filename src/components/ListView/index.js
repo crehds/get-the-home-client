@@ -9,36 +9,33 @@ import { ListViewWrapper, PropertiesFound } from './styles';
 
 // const slides = [[...cards], [...cards], [...cards]];
 const initialState = {
-  price: { min: "", max: "" },
+  price: { min: '', max: '' },
   property_type: { apartment: false, house: false },
-  bedrooms: "",
-  bathrooms: "",
+  bedrooms: '',
+  bathrooms: '',
   pets: false,
-  area: { min: "", max: "" },
+  area: { min: '', max: '' },
   operation_type: '',
-  searchQuery: ""
+  searchQuery: '',
 };
 function ListView() {
-  // let slides = [];
-
   const [properties, setProperties] = useState([]);
   const [filters, setFilters] = useState(initialState);
 
   useEffect(() => {
-    getProperties()
-      .then((data) => {
-        //Paso adicional hasta que este resuelto la imagen de la api
-        setProperties(
-          data.map((e) => ({
-            ...e,
-            photo:
-              'https://dnm.nflximg.net/api/v6/BvVbc2Wxr2w6QuoANoSpJKEIWjQ/AAAAQZUkwT6XhdDnNqAsPrZiQWWHvhpJo0cviRndWweNeFE0G6sOOa7ltzrwXSocCIsqRqAcruHZtEk-MBx_qLAJz-43yAbJAJXmEYKEMD78GRjJ3ro5x5T97jaAj0NwMiaHvO4mNGLRmwNAPE2yA0LWWV1UfQI.jpg?r=48b'
-          }))
-        );
-      })
+    getProperties().then((data) => {
+      //Paso adicional hasta que este resuelto la imagen de la api
+      setProperties(
+        data.map((e) => ({
+          ...e,
+          photo:
+            'https://dnm.nflximg.net/api/v6/BvVbc2Wxr2w6QuoANoSpJKEIWjQ/AAAAQZUkwT6XhdDnNqAsPrZiQWWHvhpJo0cviRndWweNeFE0G6sOOa7ltzrwXSocCIsqRqAcruHZtEk-MBx_qLAJz-43yAbJAJXmEYKEMD78GRjJ3ro5x5T97jaAj0NwMiaHvO4mNGLRmwNAPE2yA0LWWV1UfQI.jpg?r=48b',
+        }))
+      );
+    });
   }, []);
 
-  console.log(filters)
+  console.log(filters);
 
   function filterByRange(properties, range, attribute) {
     if (range.min === 0 && range.max === Infinity) return properties;
@@ -90,20 +87,24 @@ function ListView() {
   }
 
   function filterByNumber(properties, number, attribute) {
-    if (number === "") return properties;
+    if (number === '') return properties;
     if (attribute === 'bedrooms') {
       return properties.filter(
-        (property) => property.bedrooms === parseInt(number));
+        (property) => property.bedrooms === parseInt(number)
+      );
     } else {
       return properties.filter(
-        (property) => property.bathrooms === parseInt(number));
+        (property) => property.bathrooms === parseInt(number)
+      );
     }
   }
 
   function filterByAddress(properties, searchQuery) {
-    if (searchQuery === "") return properties;
+    if (searchQuery === '') return properties;
 
-    return properties.filter((property) => property.address.toLowerCase().includes(searchQuery.toLowerCase()));
+    return properties.filter((property) =>
+      property.address.toLowerCase().includes(searchQuery.toLowerCase())
+    );
   }
 
   const propertiesByPrice = filterByRange(properties, filters.price, 'price');
@@ -127,7 +128,7 @@ function ListView() {
     filters.bathrooms,
     'bathrooms'
   );
-  const propertiesByAddress = filterByAddress(
+  const propertiesFiltered = filterByAddress(
     propertiesByBathrooms,
     filters.searchQuery
   );
@@ -137,9 +138,9 @@ function ListView() {
       <ListViewWrapper>
         <Filter handler={setFilters} values={filters} />
         <PropertiesFound>
-          {propertiesByAddress.length} Properties found
+          {propertiesFiltered.length} Properties found
         </PropertiesFound>
-        <Carousel slides={propertiesByAddress} />
+        <Carousel slides={propertiesFiltered} />
       </ListViewWrapper>
     </Section>
   );
