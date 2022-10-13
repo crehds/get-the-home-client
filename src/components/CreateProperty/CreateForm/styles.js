@@ -1,8 +1,9 @@
 import styled from '@emotion/styled';
-import { colors } from '../../styles/colors';
-import { typography } from '../../styles/typography';
+import { Form } from 'formik';
+import { colors } from '../../../styles/colors';
+import { typography } from '../../../styles/typography';
 
-export const CrPrForm = styled.form`
+export const CrPrForm = styled(Form)`
   display: flex;
   flex-direction: column;
   gap: 1.6rem;
@@ -49,19 +50,27 @@ export const CrPrPhotos = styled.div`
   h3 {
     ${typography.headline.xs};
   }
-  & div {
-    &:nth-of-type(1) {
-      display: flex;
-      flex-direction: column;
-      gap: 1.6rem;
-    }
-    &:nth-of-type(2) {
-      background-color: #f5f5f6;
-      width: 100%;
-      max-width: 60rem;
-      height: 136px;
-      padding: 0.8rem;
-    }
+`;
+
+export const UploadWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  border: 1px solid red;
+  gap: 1.6rem;
+`;
+
+export const EmptyWrapper = styled.div`
+  background-color: #f5f5f6;
+  width: 100%;
+  max-width: 60rem;
+  height: 136px;
+  display: flex;
+  padding: 0.8rem;
+  gap: 1rem;
+  & img {
+    width: 120px;
+    /* object-fit: 50px; */
+    height: auto;
   }
 `;
 
@@ -71,6 +80,7 @@ export const CrPrPhPreviewEmpty = styled.div`
   width: 12rem;
   height: 12rem;
   display: flex;
+  /* flex-direction: row; */
   align-items: center;
   justify-content: center;
   & p {

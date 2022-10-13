@@ -6,9 +6,16 @@ function Carousel({ slides }) {
   return (
     <NukaCarousel>
       {slides.map((cards, i) => (
-        <Wrapper>
-          {cards.map((card) => (
-            <PropertyCard {...card} />
+        <Wrapper key={`list-view-slide-${i}`}>
+          {cards.map((card, j) => (
+            <PropertyCard
+              key={`list-view-card-${i}-${j}`}
+              {...card}
+              operationType={card.operation_type}
+              price={card.price.toLocaleString('en-US')}
+              propertyType={card.property_type}
+              pet={card.pets}
+            />
           ))}
         </Wrapper>
       ))}

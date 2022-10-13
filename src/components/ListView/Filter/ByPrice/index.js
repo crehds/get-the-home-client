@@ -3,18 +3,42 @@ import Button from '../../../Button';
 import Number from '../../../Inputs/Number';
 import { Wrapper } from './styles';
 
-function ByPrice() {
+function ByPrice({ onChange, values, setIsOpen }) {
+
+
+  function handleChange({ target }) {
+    onChange((values) => ({
+      ...values,
+      price: {
+        ...values.price,
+        [target.name]: target.value,
+        },
+    }));
+  }
+
   return (
     <Wrapper>
       <div>
         <p>salary range</p>
         <div>
-          <Number placeholder='min' />
+          <Number
+            placeholder='min'
+            value={values.price['min']}
+            handleChange={handleChange}
+            name='min'
+            id={"price"}
+          />
           <AiOutlineMinus size={24} />
-          <Number placeholder='max' />
+          <Number
+            placeholder='max'
+            value={values.price['max']}
+            handleChange={handleChange}
+            name='max'
+            id={"price"}
+          />
         </div>
       </div>
-      <Button size='small' value='done' type='primary' />
+      <Button size='small' value='done' type='primary' onClick={() => setIsOpen(false)}/>
     </Wrapper>
   );
 }

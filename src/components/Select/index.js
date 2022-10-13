@@ -9,8 +9,13 @@ function Select({
   options = [],
   multiple = false,
   labelValue,
-  placeholder = 'Select...'
+  placeholder = 'Select...',
+  handleChange,
+  onSelect,
+  values
 }) {
+  
+  console.log()
   return (
     <SelectWrapper>
       <SelectLabel htmlFor={name}>{labelValue}</SelectLabel>
@@ -23,6 +28,7 @@ function Select({
         isMulti={multiple}
         styles={colourStyles}
         placeholder={placeholder}
+        onChange={(choice) => handleChange(name, choice.value)}
       />
     </SelectWrapper>
   );

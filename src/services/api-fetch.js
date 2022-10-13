@@ -1,4 +1,4 @@
-import { BASE_URI, tokenKey } from "../config";
+import { BASE_URI, tokenKey } from '../config';
 
 export default async function apiFetch(
   endpoint,
@@ -9,21 +9,21 @@ export default async function apiFetch(
   if (token) {
     headers = {
       Authorization: `Bearer ${token}`,
-      ...headers
+      ...headers,
     };
   }
 
   if (body) {
     headers = {
-      "Content-Type": "application/json",
-      ...headers
+      'Content-Type': 'application/json',
+      ...headers,
     };
   }
 
   const config = {
-    method: method || (body ? "POST" : "GET"),
+    method: method || (body ? 'POST' : 'GET'),
     headers,
-    body: body ? JSON.stringify(body) : null
+    body: body ? JSON.stringify(body) : null,
   };
 
   const response = await fetch(BASE_URI + endpoint, config);

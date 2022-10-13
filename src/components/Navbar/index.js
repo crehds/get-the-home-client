@@ -3,7 +3,7 @@ import {
   RiUserAddLine,
   RiUserReceived2Line,
   RiUserLine,
-  RiHome8Line
+  RiHome8Line,
 } from 'react-icons/ri';
 import { BiLogOutCircle } from 'react-icons/bi';
 import { AiFillHeart } from 'react-icons/ai';
@@ -17,70 +17,70 @@ function Navbar({ user }) {
   return (
     <WrapperHeader>
       <WrapperNav>
-        <Link to="/">
-          <img src={logo} alt="logo" />
+        <Link to='/'>
+          <img src={logo} alt='logo' />
         </Link>
         {!user ? (
           <WrapperUl>
-            <div>
+            <Link to='/list-view'>
               <Button
-                size="default"
-                type="ghost"
+                size='default'
+                type='ghost'
                 value={'Find a home'}
-                icon={<BiSearch size="2.1rem" />}
+                icon={<BiSearch size='2.1rem' />}
               />
-            </div>
-            <Link to="/signup">
+            </Link>
+            <Link to='/signup'>
               <Button
-                size="default"
-                type="secondary"
+                size='default'
+                type='secondary'
                 value={'Join'}
-                icon={<RiUserAddLine size="2rem" />}
+                icon={<RiUserAddLine size='2rem' />}
               />
             </Link>
             <Button
-              size="default"
-              type="primary"
+              size='default'
+              type='primary'
               value={'Login'}
-              icon={<RiUserReceived2Line size="2rem" />}
+              icon={<RiUserReceived2Line size='2rem' />}
             />
           </WrapperUl>
         ) : (
           <WrapperUl>
             <div>
               <Button
-                size="default"
-                type="ghost"
+                size='default'
+                type='ghost'
                 value={'Find a home'}
-                icon={<BiSearch size="2.1rem" />}
+                icon={<BiSearch size='2.1rem' />}
               />
             </div>
             <Button
-              size="default"
-              type="secondary"
+              size='default'
+              type='secondary'
               value={'Logout'}
-              icon={<BiLogOutCircle size="2rem" />}
+              icon={<BiLogOutCircle size='2rem' />}
             />
             {user.role === 'seeker' ? (
               <Button
-                size="default"
-                type="primary"
+                size='default'
+                type='primary'
                 value={'Saved Properties'}
-                icon={<AiFillHeart size="2rem" />}
+                icon={<AiFillHeart size='2rem' />}
               />
             ) : (
               <Button
-                size="default"
-                type="primary"
+                size='default'
+                type='primary'
                 value={'My Properties'}
-                icon={<RiHome8Line size="2rem" />}
+                icon={<RiHome8Line size='2rem' />}
               />
             )}
             <Button
-              size="default"
-              type="primary"
+              size='default'
+              type='primary'
               value={'Profile'}
-              icon={<RiUserLine size="2rem" />}
+              icon={<RiUserLine size='2rem' />}
             />
           </WrapperUl>
         )}
