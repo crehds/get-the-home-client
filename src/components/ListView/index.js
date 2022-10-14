@@ -137,15 +137,15 @@ function ListView() {
     while (i < propertiesFiltered.length) {
       propertySplit = [];
       for (let j = 0; j < 9; j++) {
-        j < propertiesFiltered.length &&
-          propertySplit.push(propertiesFiltered[j]);
+        if (j < propertiesFiltered.length && i < propertiesFiltered.length) {
+          propertySplit.push(propertiesFiltered[i]);
+          i++;
+        }
       }
       propertiesArray.push(propertySplit);
-      i += 9;
     }
   }
   splitProperties();
-  console.log(propertiesArray);
 
   return (
     <Section>
