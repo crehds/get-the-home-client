@@ -56,6 +56,14 @@ function Filter({ handler, values }) {
     }));
   }
 
+  function handleOperationType(name, value) {
+    console.log(value)
+    handler((values) => ({
+      ...values,
+      operation_type: value
+    }));
+  }
+
   return (
     <FilterWrapper>
       <Search  handleChange={handleQuery}/>
@@ -92,7 +100,7 @@ function Filter({ handler, values }) {
           </FilterModal>
         )}
       </FilterButtons>
-      <Select options={TYPE_OPERATION} handleChange={handler} values={values}/>
+      <Select options={TYPE_OPERATION} labelValue={'operation_type'} name={'operation_type'} handleChange={handleOperationType} values={values}/>
     </FilterWrapper>
   );
 }
