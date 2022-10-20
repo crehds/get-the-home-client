@@ -9,33 +9,30 @@ import { ListViewWrapper, PropertiesFound } from './styles';
 
 // const slides = [[...cards], [...cards], [...cards]];
 const initialState = {
-  price: { min: "", max: "" },
+  price: { min: '', max: '' },
   property_type: { apartment: false, house: false },
-  bedrooms: "",
-  bathrooms: "",
+  bedrooms: '',
+  bathrooms: '',
   pets: false,
-  area: { min: "", max: "" },
-  operation_type: '',
-  searchQuery: ""
+  area: { min: '', max: '' },
+  operation_type: 'sale & rent',
+  searchQuery: '',
 };
 function ListView() {
-  // let slides = [];
-
   const [properties, setProperties] = useState([]);
   const [filters, setFilters] = useState(initialState);
 
   useEffect(() => {
-    getProperties()
-      .then((data) => {
-        //Paso adicional hasta que este resuelto la imagen de la api
-        setProperties(
-          data.map((e) => ({
-            ...e,
-            photo:
-              'https://dnm.nflximg.net/api/v6/BvVbc2Wxr2w6QuoANoSpJKEIWjQ/AAAAQZUkwT6XhdDnNqAsPrZiQWWHvhpJo0cviRndWweNeFE0G6sOOa7ltzrwXSocCIsqRqAcruHZtEk-MBx_qLAJz-43yAbJAJXmEYKEMD78GRjJ3ro5x5T97jaAj0NwMiaHvO4mNGLRmwNAPE2yA0LWWV1UfQI.jpg?r=48b'
-          }))
-        );
-      })
+    getProperties().then((data) => {
+      //Paso adicional hasta que este resuelto la imagen de la api
+      setProperties(
+        data.map((e) => ({
+          ...e,
+          photo:
+            'https://dnm.nflximg.net/api/v6/BvVbc2Wxr2w6QuoANoSpJKEIWjQ/AAAAQZUkwT6XhdDnNqAsPrZiQWWHvhpJo0cviRndWweNeFE0G6sOOa7ltzrwXSocCIsqRqAcruHZtEk-MBx_qLAJz-43yAbJAJXmEYKEMD78GRjJ3ro5x5T97jaAj0NwMiaHvO4mNGLRmwNAPE2yA0LWWV1UfQI.jpg?r=48b',
+        }))
+      );
+    });
   }, []);
 
   console.log(filters)
@@ -90,20 +87,30 @@ function ListView() {
   }
 
   function filterByNumber(properties, number, attribute) {
-    if (number === "") return properties;
+    if (number === '') return properties;
     if (attribute === 'bedrooms') {
       return properties.filter(
-        (property) => property.bedrooms === parseInt(number));
+        (property) => property.bedrooms === parseInt(number)
+      );
     } else {
       return properties.filter(
-        (property) => property.bathrooms === parseInt(number));
+        (property) => property.bathrooms === parseInt(number)
+      );
     }
   }
 
   function filterByAddress(properties, searchQuery) {
-    if (searchQuery === "") return properties;
+    if (searchQuery === '') return properties;
 
-    return properties.filter((property) => property.address.toLowerCase().includes(searchQuery.toLowerCase()));
+    return properties.filter((property) =>
+      property.address.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+  }
+
+  function filterByOperationType(properties, operation_type) {
+    if (operation_type === "sale & rent") return properties;
+
+    return properties.filter((property) => property.operation_type === operation_type);
   }
 
   const propertiesByPrice = filterByRange(properties, filters.price, 'price');
@@ -132,14 +139,36 @@ function ListView() {
     filters.searchQuery
   );
 
+  const propertiesFiltered = filterByOperationType(
+    propertiesByAddress,
+    filters.operation_type
+  )
+  
+  let propertiesArray = [];
+  function splitProperties() {
+    let propertySplit = [];
+    let i = 0;
+    while (i < propertiesFiltered.length) {
+      propertySplit = [];
+      for (let j = 0; j < 9; j++) {
+        if (j < propertiesFiltered.length && i < propertiesFiltered.length) {
+          propertySplit.push(propertiesFiltered[i]);
+          i++;
+        }
+      }
+      propertiesArray.push(propertySplit);
+    }
+  }
+  splitProperties();
+
   return (
     <Section>
       <ListViewWrapper>
         <Filter handler={setFilters} values={filters} />
         <PropertiesFound>
-          {propertiesByAddress.length} Properties found
+          {propertiesFiltered.length} Properties found
         </PropertiesFound>
-        <Carousel slides={propertiesByAddress} />
+        <Carousel slides={propertiesArray} />
       </ListViewWrapper>
     </Section>
   );
