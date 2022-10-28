@@ -33,20 +33,18 @@ export const Label = styled.label`
     if (theme.active) {
       return css`
         background-color: ${colors.pink};
+        & p {
+          color: white;
+        }
       `;
     }
   }}
-  & input[type='checkbox'] {
+  & input[type='radio'] {
     appearance: none;
     position: absolute;
-    &:checked {
-      & + p {
-        width: 100%;
-        color: white;
-      }
-    }
   }
   & p {
+    width: 100%;
     padding: 0.8rem 1.5rem;
   }
   &:first-of-type {

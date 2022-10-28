@@ -1,22 +1,26 @@
-import { useContext } from "react";
-import { createContext, useEffect, useState } from "react";
-import { tokenKey } from "../config";
-import * as auth from "./../services/auth-service";
-import { createUser, getUser, updateUser } from "./../services/users-service";
+import { useContext } from 'react';
+import { createContext, useEffect, useState } from 'react';
+import { tokenKey } from '../config';
+import * as auth from './../services/auth-service';
+import { createUser, getUser, updateUser } from './../services/users-service';
 
 const AuthContext = createContext();
 
 function AuthProvider({ children }) {
+  const [token, setToken] = useState(null);
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    getUser()
-      .then((u) => setUser(u))
-      .catch((error) => console.log(error));
+    if (token) {
+      getUser()
+        .then((u) => setUser(u))
+        .catch((error) => console.log(error));
+    }
   }, []);
 
   function login(credentials) {
-    auth.login(credentials)
+    auth
+      .login(credentials)
       .then((u) => setUser(u))
       .catch((error) => console.log(error));
   }
@@ -53,8 +57,8 @@ function AuthProvider({ children }) {
   );
 }
 
-function useAuth(){
+function useAuth() {
   return useContext(AuthContext);
 }
 
-export { AuthProvider, useAuth};
+export { AuthProvider, useAuth };

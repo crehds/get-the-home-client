@@ -4,19 +4,44 @@ import Check from '../../../Inputs/Check';
 import Number from '../../../Inputs/Number';
 import { Wrapper } from './styles';
 
-function More() {
+function More({onChange,  values, setIsOpen }) {
+
+  function handleChangePets({ target }) {
+    onChange((values) => ({
+      ...values,
+      pets: target.checked
+    }));
+  }
+
+  function handleChangeArea({target}) {
+    onChange((values) => ({
+      ...values,
+      area: {
+        ...values.area,
+        [target.name]: target.value,
+      },
+    }))
+  }
   return (
     <Wrapper>
-      <Check value='Pets Allowed' />
+      <Check value='Pets Allowed' onChange={handleChangePets} checked={values.pets === true}/>
       <div>
-        <p>salary range</p>
+        <p>area range</p>
         <div>
-          <Number placeholder='min' icon={false} />
+          <Number placeholder='min' icon={false} 
+            value={values.area['min']}
+            handleChange={handleChangeArea}
+            name='min'
+            id={"area"}/>
           <AiOutlineMinus size={24} />
-          <Number placeholder='max' icon={false} />
+          <Number placeholder='max' icon={false} 
+            value={values.area['max']}
+            handleChange={handleChangeArea}
+            name='max'
+            id={"area"} />
         </div>
       </div>
-      <Button size='small' type='primary' value='done' />
+      <Button size='small' type='primary' value='done' onClick={() => setIsOpen(false)}/>
     </Wrapper>
   );
 }

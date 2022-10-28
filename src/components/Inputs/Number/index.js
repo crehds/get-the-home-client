@@ -2,7 +2,17 @@ import { RiMoneyDollarCircleLine } from 'react-icons/ri';
 import { colors } from '../../../styles/colors';
 import { Label, NumberLabel, NumberWrapper } from './styles';
 
-function Number({ id, icon = true, name, value, placeholder, label }) {
+function Number({
+  id,
+  icon = true,
+  name,
+  value,
+  placeholder,
+  label,
+  functionChange,
+  handleChange
+}) {
+
   return (
     <NumberWrapper>
       {label && <NumberLabel>{label}</NumberLabel>}
@@ -17,9 +27,10 @@ function Number({ id, icon = true, name, value, placeholder, label }) {
         <input
           type='number'
           id={id}
-          name={name}
           value={value}
+          name={name}
           placeholder={placeholder}
+          onChange={handleChange}
         />
       </Label>
     </NumberWrapper>
