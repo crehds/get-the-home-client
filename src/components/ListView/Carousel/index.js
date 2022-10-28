@@ -2,6 +2,7 @@ import NukaCarousel from 'nuka-carousel';
 import PropertyCard from '../../PropertyCard';
 import { CarouselButton, CarouselButtonsWrapper, Wrapper } from './styles';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function Carousel({ slides }) {
   const [slide, setSlide] = useState(0);
@@ -32,14 +33,16 @@ function Carousel({ slides }) {
       {slides.map((cards, i) => (
         <Wrapper key={`list-view-slide-${i}`}>
           {cards.map((card, j) => (
-            <PropertyCard
-              key={`list-view-card-${i}-${j}`}
-              {...card}
-              operationType={card.operation_type}
-              price={card.price.toLocaleString('en-US')}
-              propertyType={card.property_type}
-              pet={card.pets}
-            />
+            <Link to={`/property-detail/${card.id}`} key={card.id}>
+              <PropertyCard
+                key={`list-view-card-${i}-${j}`}
+                {...card}
+                operationType={card.operation_type}
+                price={card.price.toLocaleString('en-US')}
+                propertyType={card.property_type}
+                pet={card.pets}
+              />
+            </Link>
           ))}
         </Wrapper>
       ))}
