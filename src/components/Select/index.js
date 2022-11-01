@@ -12,10 +12,8 @@ function Select({
   placeholder = 'Select...',
   handleChange,
   onSelect,
-  values
+  values,
 }) {
-  
-  console.log()
   return (
     <SelectWrapper>
       <SelectLabel htmlFor={name}>{labelValue}</SelectLabel>
