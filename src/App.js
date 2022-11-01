@@ -21,6 +21,7 @@ function App() {
           <Route index element={<Landing />} />
           <Route path='/create-property' element={<CreateProperty />} />
           <Route path='/property-detail' element={<PropertyDetail />} />
+          <Route path='/property-detail/:id' element={<PropertyDetail />} />
           <Route path='/signup' element={<Signup />} />
           <Route path='/signup-form' element={<SignupForm />} />
           <Route path='/list-view' element={<ListView />} />

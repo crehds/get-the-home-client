@@ -1,7 +1,8 @@
 import Carousel from 'nuka-carousel';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import { RiMoneyDollarCircleLine } from 'react-icons/ri';
-import { BiBed, BiBath } from 'react-icons/bi';
+import { BiBed, BiBath, BiArea } from 'react-icons/bi';
+import { MdPets } from 'react-icons/md'
 import {
   AboutDetails,
   BuildingDetails,
@@ -16,12 +17,22 @@ import property1 from '../../../assets/properties/photo1.png';
 import property2 from '../../../assets/properties/photo1.png';
 import property3 from '../../../assets/properties/photo1.png';
 import property4 from '../../../assets/properties/photo1.png';
+import { useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { showProperty } from '../../../services/unlogged-service';
 
-const ABOUT_MESSAGE =
-  '3 Bedroom/2 Bathroom apartment available for ASAP move-in!\n\nApartment features hardwood floors throughout, virtual doorman, Central AC/heat, dishwasher and a microwave.\n\nThe kitchen has custom cabinetry and the living room is big enough to fit a dinner table, a couch and a tv set up.';
 
 const images = [property1, property2, property3, property4];
 function Info() {
+  const [property, setProperty] = useState('');
+  let { id } = useParams();
+
+
+  useEffect(() => {
+    showProperty(id).then(setProperty).catch(console.log);
+  }, [id]);
+  const commaSeparator = property.address && property.address.indexOf(',')
+
   return (
     <InfoWrapper>
       <ImgsCarousel>
@@ -57,42 +68,42 @@ function Info() {
       <Details>
         <GeneralDetails>
           <div>
-            <h4>Francisco de Paula Ugarriza 27</h4>
-            <p>Miraflores, Lima</p>
+            <h4>{property.address && property.address.split(',')[0]}</h4>
+            <p>{commaSeparator !==-1 && property.address && property.address.slice(commaSeparator + 1)}</p> 
           </div>
           <div>
             <h4>
               <RiMoneyDollarCircleLine />
-              3,000
+              {property.price}
             </h4>
-            <p>+100</p>
+            <p>+{property.maintenance}</p>
           </div>
         </GeneralDetails>
         <BuildingDetails>
           <div>
             <BiBed size={32} color={colors.gray} />
-            <p>4 bedrooms</p>
+            <p>{property.bedrooms && property.bedrooms + " bedrooms"}</p>
           </div>
           <div>
             <BiBath size={32} color={colors.gray} />
-            <p>2 bathrooms</p>
+            <p>{property.bathrooms && property.bathrooms + " bathrooms"} </p>
           </div>
           <div>
-            <BiBed size={32} color={colors.gray} />
-            <p>180 m2</p>
+            <BiArea size={32} color={colors.gray} />
+            <p>{property.area && property.area + " m2"} </p>
           </div>
           <div>
-            <BiBed size={32} color={colors.gray} />
-            <p>Pets allowed</p>
+            <MdPets size={32} color={colors.gray} />
+            <p>{property.pets? "Pets allowed": "Pets not allowed"}</p>
           </div>
         </BuildingDetails>
         <AboutDetails>
           <h6>About this property</h6>
-          <p>{ABOUT_MESSAGE}</p>
+          <p>{property.about && property.about}</p>
         </AboutDetails>
         <MapDetails>
           <h6>Location</h6>
-          <p>Francisco de Paula Ugarriza 27, Miraflores, Lima</p>
+          <p>{property.address}</p>
           <div>
             <iframe
               title='google-map'
