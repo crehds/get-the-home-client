@@ -15,7 +15,7 @@ const initialState = {
   bathrooms: '',
   pets: false,
   area: { min: '', max: '' },
-  operation_type: '',
+  operation_type: 'sale & rent',
   searchQuery: '',
 };
 function ListView() {
@@ -34,6 +34,8 @@ function ListView() {
       );
     });
   }, []);
+
+  console.log(filters)
 
   function filterByRange(properties, range, attribute) {
     if (range.min === 0 && range.max === Infinity) return properties;
@@ -105,6 +107,12 @@ function ListView() {
     );
   }
 
+  function filterByOperationType(properties, operation_type) {
+    if (operation_type === "sale & rent") return properties;
+
+    return properties.filter((property) => property.operation_type === operation_type);
+  }
+
   const propertiesByPrice = filterByRange(properties, filters.price, 'price');
   const propertiesByPropertyType = filterByPropertyType(
     propertiesByPrice,
@@ -126,10 +134,16 @@ function ListView() {
     filters.bathrooms,
     'bathrooms'
   );
-  const propertiesFiltered = filterByAddress(
+  const propertiesByAddress = filterByAddress(
     propertiesByBathrooms,
     filters.searchQuery
   );
+
+  const propertiesFiltered = filterByOperationType(
+    propertiesByAddress,
+    filters.operation_type
+  )
+  
   let propertiesArray = [];
   function splitProperties() {
     let propertySplit = [];
