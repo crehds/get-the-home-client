@@ -27,7 +27,14 @@ function SignupForm({ data }) {
       }}
       onSubmit={(user) => {
         const { name, email, password, phone, role } = user;
-        console.log(name, email, password, phone, role);
+        const credentials = {
+          name: name,
+          email: email,
+          password: password,
+          phone: phone,
+          role: role,
+        };
+        console.log(credentials);
       }}
     >
       {({
