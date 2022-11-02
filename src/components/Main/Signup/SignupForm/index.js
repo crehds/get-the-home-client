@@ -114,7 +114,7 @@ function SignupForm({ data }) {
                 onBlur={handleBlur}
               />
             </StyledInputsContainer>
-            <Button type='submit' size='default' value='Create account' />
+            <Button type='primary' size='default' value='Create account' />
           </StyledFormContainer>
         </WrapperSignupForm>
       )}

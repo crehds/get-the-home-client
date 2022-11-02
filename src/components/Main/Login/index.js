@@ -7,6 +7,7 @@ import {
   StyledInputsContainer,
   WrapperLoginForm,
 } from './styles';
+import { FiUserPlus } from 'react-icons/fi';
 
 function Login() {
   return (
@@ -63,7 +64,12 @@ function Login() {
                 onBlur={handleBlur}
               />
             </StyledInputsContainer>
-            <Button type='submit' size='default' value='Login' />
+            <Button
+              type='primary'
+              size='default'
+              value='Login'
+              icon={<FiUserPlus size='2rem' />}
+            />
           </StyledFormContainer>
         </WrapperLoginForm>
       )}
