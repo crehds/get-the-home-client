@@ -58,6 +58,7 @@ function Login() {
                 placeholder='******'
                 label='Password'
                 value={values.password}
+                type='password'
                 onChange={handleChange}
                 onBlur={handleBlur}
               />

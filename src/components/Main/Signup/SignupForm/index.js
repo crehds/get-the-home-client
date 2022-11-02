@@ -92,6 +92,7 @@ function SignupForm({ data }) {
                 name='password'
                 caption={'At least 6 characteres'}
                 value={values.password}
+                type='password'
                 onChange={handleChange}
                 onBlur={handleBlur}
               />
@@ -103,6 +104,7 @@ function SignupForm({ data }) {
                 placeholder='******'
                 name='passwordConfirmation'
                 onChange={handleChange}
+                type='password'
                 onBlur={handleBlur}
               />
             </StyledInputsContainer>
