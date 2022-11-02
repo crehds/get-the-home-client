@@ -2,6 +2,7 @@ import { Formik } from 'formik';
 import Button from '../../../Button';
 import Input from '../../../Inputs/Input';
 import {
+  StyledError,
   StyledFormContainer,
   StyledInputsContainer,
   WrapperSignupForm,
@@ -49,7 +50,9 @@ function SignupForm({ data }) {
           <StyledFormContainer>
             <h5>Create your Account</h5>
             <StyledInputsContainer>
-              {errors.name && touched.name && errors.name}
+              {errors.name && touched.name && (
+                <StyledError>{errors.name}</StyledError>
+              )}
               <Input
                 label='Name'
                 placeholder='John Doe'
@@ -58,7 +61,9 @@ function SignupForm({ data }) {
                 onChange={handleChange}
                 onBlur={handleBlur}
               />
-              {errors.email && touched.email && errors.email}
+              {errors.email && touched.email && (
+                <StyledError>{errors.email}</StyledError>
+              )}
               <Input
                 label='Email'
                 placeholder='user@mail.com'
@@ -67,7 +72,9 @@ function SignupForm({ data }) {
                 onChange={handleChange}
                 onBlur={handleBlur}
               />
-              {errors.phone && touched.phone && errors.phone}
+              {errors.phone && touched.phone && (
+                <StyledError>{errors.phone}</StyledError>
+              )}
               <Input
                 label='Phone'
                 placeholder='999-999-999'
@@ -76,7 +83,9 @@ function SignupForm({ data }) {
                 onChange={handleChange}
                 onBlur={handleBlur}
               />
-              {errors.password && touched.password && errors.password}
+              {errors.password && touched.password && (
+                <StyledError>{errors.password}</StyledError>
+              )}
               <Input
                 label='Password'
                 placeholder='******'
@@ -86,9 +95,9 @@ function SignupForm({ data }) {
                 onChange={handleChange}
                 onBlur={handleBlur}
               />
-              {errors.passwordConfirmation &&
-                touched.passwordConfirmation &&
-                errors.passwordConfirmation}
+              {errors.passwordConfirmation && touched.passwordConfirmation && (
+                <StyledError>{errors.passwordConfirmation}</StyledError>
+              )}
               <Input
                 label='Password Confirmation'
                 placeholder='******'

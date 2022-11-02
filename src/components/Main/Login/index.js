@@ -39,9 +39,9 @@ function Login() {
           <StyledFormContainer>
             <h5>Login</h5>
             <StyledInputsContainer>
-              <StyledError>
-                {errors.email && touched.email && errors.email}
-              </StyledError>
+              {errors.email && touched.email && (
+                <StyledError>{errors.email}</StyledError>
+              )}
               <Input
                 name='email'
                 placeholder='user@email.com'
@@ -50,9 +50,9 @@ function Login() {
                 onChange={handleChange}
                 onBlur={handleBlur}
               />
-              <StyledError>
-                {errors.password && touched.password && errors.password}
-              </StyledError>
+              {errors.password && touched.password && (
+                <StyledError>{errors.password}</StyledError>
+              )}
               <Input
                 name='password'
                 placeholder='******'

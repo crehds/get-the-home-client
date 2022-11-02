@@ -38,31 +38,33 @@ function Signup() {
   }
 
   return (
-    <Wrapper>
+    <div>
       {!role ? (
-        <div>
-          <div className='title'>
-            <h5>Selecciona el perfil con el que te identificas</h5>
-            <h2>Que estas buscando?</h2>
+        <Wrapper>
+          <div>
+            <div className='title'>
+              <h5>Selecciona el perfil con el que te identificas</h5>
+              <h2>Que estas buscando?</h2>
+            </div>
+            <div className='cards'>
+              {roles.map((role) => {
+                return (
+                  <SignupCard
+                    key={role.name}
+                    img={role.img}
+                    name={role.name}
+                    description={role.description}
+                    onClick={() => handleRole(role.name)}
+                  ></SignupCard>
+                );
+              })}
+            </div>
           </div>
-          <div className='cards'>
-            {roles.map((role) => {
-              return (
-                <SignupCard
-                  key={role.name}
-                  img={role.img}
-                  name={role.name}
-                  description={role.description}
-                  onClick={() => handleRole(role.name)}
-                ></SignupCard>
-              );
-            })}
-          </div>
-        </div>
+        </Wrapper>
       ) : (
         <SignupForm data={userData} />
       )}
-    </Wrapper>
+    </div>
   );
 }
 

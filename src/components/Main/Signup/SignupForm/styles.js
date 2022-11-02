@@ -38,3 +38,8 @@ export const StyledInputsContainer = styled.div`
   flex-direction: column;
   gap: 0.8rem;
 `;
+
+export const StyledError = styled.p`
+  ${typography.overline}
+  color: ${colors.error};
+`;
