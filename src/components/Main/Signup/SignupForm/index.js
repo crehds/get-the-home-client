@@ -19,6 +19,12 @@ function SignupForm({ data }) {
         else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email))
           errors.email = 'Invalid email address';
         if (!values.phone) errors.phone = 'Phone required';
+        else if (
+          !/^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/i.test(
+            values.phone
+          )
+        )
+          errors.phone = 'Invalid phone number';
         if (!values.password) errors.password = 'Password required';
         if (values.password.length < 6)
           errors.password = 'Password should be at least 6 characters';
