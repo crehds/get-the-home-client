@@ -11,6 +11,7 @@ export const Wrapper = styled.div`
   align-items: center;
   gap: 0.8rem;
   border-radius: 0.8rem;
+  cursor: pointer;
   ${shadow.elevation1};
   background: ${colors.white};
   & div {

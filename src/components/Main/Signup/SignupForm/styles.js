@@ -3,7 +3,7 @@ import { colors } from '../../../../styles/colors';
 import { typography } from '../../../../styles/typography';
 import { shadow } from '../../../../styles/utils';
 
-export const WrapperSignupForm = styled.div`
+export const WrapperSignupForm = styled.form`
   min-height: calc(100vh - 7.2rem - 12.98rem);
   background: linear-gradient(
     to bottom,
