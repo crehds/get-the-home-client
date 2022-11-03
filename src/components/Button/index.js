@@ -4,7 +4,7 @@ import { SmallButton, DefaultButton, LargeButton } from './styles';
 const BUTTONS = {
   small: <SmallButton />,
   default: <DefaultButton />,
-  large: <LargeButton />
+  large: <LargeButton />,
 };
 
 function Button({
@@ -14,7 +14,7 @@ function Button({
   value,
   icon,
   onClick,
-  sideIcon = 'left'
+  sideIcon = 'left',
 }) {
   return cloneElement(BUTTONS[size], {
     onClick,
@@ -26,7 +26,7 @@ function Button({
         {value}
         {sideIcon === 'right' && icon}
       </>
-    )
+    ),
   });
 }
 

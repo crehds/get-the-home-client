@@ -38,12 +38,14 @@ function Navbar({ user }) {
                 icon={<RiUserAddLine size='2rem' />}
               />
             </Link>
-            <Button
-              size='default'
-              type='primary'
-              value={'Login'}
-              icon={<RiUserReceived2Line size='2rem' />}
-            />
+            <Link to='/login'>
+              <Button
+                size='default'
+                type='primary'
+                value={'Login'}
+                icon={<RiUserReceived2Line size='2rem' />}
+              />
+            </Link>
           </WrapperUl>
         ) : (
           <WrapperUl>

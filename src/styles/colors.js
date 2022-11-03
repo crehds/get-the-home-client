@@ -9,5 +9,6 @@ export const colors = {
   shallowGray: 'rgba(97, 97, 97, 0.15)',
   background: '#F5F5F6',
   backgroundLight: '#E1E2E1',
-  white: '#FFFFFF'
+  white: '#FFFFFF',
+  error: '#ED4337',
 };

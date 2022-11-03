@@ -10,6 +10,7 @@ import PropertyDetail from './components/PropertyDetail';
 import MyProperties from './components/MyProperties';
 import SavedProperties from './components/SavedProperties';
 import Main from './containers/Main';
+import Login from './components/Main/Login';
 
 function App() {
   const location = useLocation();
@@ -23,7 +24,9 @@ function App() {
           <Route path='/property-detail' element={<PropertyDetail />} />
           <Route path='/property-detail/:id' element={<PropertyDetail />} />
           <Route path='/signup' element={<Signup />} />
-          <Route path='/signup-form' element={<SignupForm />} />
+          <Route path='/login' element={<Login />} />
+          {/* El signup ya lleva al signupform, hay que revisar esta ruta si se va a ocupar o no */}
+          {/* <Route path='/signup-form' element={<SignupForm />} /> */}
           <Route path='/list-view' element={<ListView />} />
           <Route path='/myproperties' element={<MyProperties />} />
           <Route path='/myproperties/:status' element={<MyProperties />} />
