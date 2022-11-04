@@ -4,6 +4,8 @@ import homeSeeker from '../../../assets/images/homeSeeker.svg';
 import { Wrapper } from './styles';
 import { useState } from 'react';
 import SignupForm from './SignupForm';
+import { useAuth } from '../../../context/auth-context';
+import { Navigate } from 'react-router-dom';
 
 const roles = [
   {
@@ -22,7 +24,6 @@ const roles = [
 
 function Signup() {
   const [role, setRole] = useState(false);
-
   const [userData, setUserData] = useState({
     role: '',
     name: '',
@@ -30,6 +31,11 @@ function Signup() {
     phone: '',
     password: '',
   });
+  
+  const { user } = useAuth();
+  if (user) {
+    return <Navigate to='/'/>;
+  }
 
   function handleRole(value) {
     setRole(true);

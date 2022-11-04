@@ -9,11 +9,15 @@ import {
 } from './styles';
 import { FiUserPlus } from 'react-icons/fi';
 import { useAuth } from '../../../context/auth-context';
-import { Link } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 
 
 function Login() {
-  const { login } = useAuth();
+  const { login, user } = useAuth();
+
+  if (user) {
+    return <Navigate to='/'/>;
+  }
 
   return (
     <Formik

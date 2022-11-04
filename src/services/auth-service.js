@@ -5,6 +5,7 @@ export function login(credentials){
   return apiFetch("/login", {body: credentials})
   .then(u =>{
     const {token, ...user} = u;
+    console.log(token)
     sessionStorage.setItem(tokenKey, token);
     return user;
   })
