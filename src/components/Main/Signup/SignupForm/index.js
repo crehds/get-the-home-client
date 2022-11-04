@@ -60,7 +60,11 @@ function SignupForm({ data, formType = 'signup' }) {
       }) => (
         <WrapperSignupForm onSubmit={handleSubmit}>
           <StyledFormContainer>
-            <h5>Create your Account</h5>
+            {formType === 'signup' ? (
+              <h5>Create your Account</h5>
+            ) : (
+              <h5>Profile</h5>
+            )}
             <StyledInputsContainer>
               {errors.name && touched.name && (
                 <StyledError>{errors.name}</StyledError>
@@ -98,27 +102,32 @@ function SignupForm({ data, formType = 'signup' }) {
               {errors.password && touched.password && (
                 <StyledError>{errors.password}</StyledError>
               )}
-              <Input
-                label='Password'
-                placeholder='******'
-                name='password'
-                caption={'At least 6 characteres'}
-                value={values.password}
-                type='password'
-                onChange={handleChange}
-                onBlur={handleBlur}
-              />
-              {errors.passwordConfirmation && touched.passwordConfirmation && (
-                <StyledError>{errors.passwordConfirmation}</StyledError>
+              {formType === 'signup' && (
+                <div>
+                  <Input
+                    label='Password'
+                    placeholder='******'
+                    name='password'
+                    caption={'At least 6 characteres'}
+                    value={values.password}
+                    type='password'
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                  />
+                  {errors.passwordConfirmation &&
+                    touched.passwordConfirmation && (
+                      <StyledError>{errors.passwordConfirmation}</StyledError>
+                    )}
+                  <Input
+                    label='Password Confirmation'
+                    placeholder='******'
+                    name='passwordConfirmation'
+                    onChange={handleChange}
+                    type='password'
+                    onBlur={handleBlur}
+                  />
+                </div>
               )}
-              <Input
-                label='Password Confirmation'
-                placeholder='******'
-                name='passwordConfirmation'
-                onChange={handleChange}
-                type='password'
-                onBlur={handleBlur}
-              />
             </StyledInputsContainer>
             <Button
               type='primary'
