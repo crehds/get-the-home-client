@@ -9,8 +9,8 @@ import {
   WrapperSignupForm,
 } from './styles';
 
-function SignupForm({ data }) {
-  const {signup} = useAuth();
+function SignupForm({ data, formType = 'signup' }) {
+  const { signup } = useAuth();
 
   return (
     <Formik
@@ -45,7 +45,9 @@ function SignupForm({ data }) {
           role: role,
         };
         console.log(credentials);
-        signup(credentials);
+        formType === 'signup'
+          ? signup(credentials)
+          : console.log('Update profile');
       }}
     >
       {({
@@ -118,7 +120,14 @@ function SignupForm({ data }) {
                 onBlur={handleBlur}
               />
             </StyledInputsContainer>
-            <Button type='primary' size='default' value='Create account' onSubmit={handleSubmit}/>
+            <Button
+              type='primary'
+              size='default'
+              value={
+                formType === 'signup' ? 'Create account' : 'Update profile'
+              }
+              onSubmit={handleSubmit}
+            />
           </StyledFormContainer>
         </WrapperSignupForm>
       )}
