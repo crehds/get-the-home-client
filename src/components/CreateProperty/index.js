@@ -1,10 +1,14 @@
 import { useState } from 'react';
+import { Navigate } from 'react-router-dom';
 import Section from '../../containers/Section';
+import { createProperty } from '../../services/landlord-services';
 import PrepareForm from '../PrepareForm';
 import CreateForm from './CreateForm';
 
 function forSubmit(e) {
   console.log(e);
+  createProperty(e);
+  return <Navigate to='/'/>;
 }
 
 function CreateProperty() {
