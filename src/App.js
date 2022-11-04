@@ -4,7 +4,6 @@ import Footer from './components/Footer';
 import ListView from './components/ListView';
 import Landing from './components/Main/Landing';
 import Signup from './components/Main/Signup';
-import SignupForm from './components/Main/Signup/SignupForm';
 import Navbar from './components/Navbar';
 import PropertyDetail from './components/PropertyDetail';
 import MyProperties from './components/MyProperties';

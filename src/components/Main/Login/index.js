@@ -8,8 +8,13 @@ import {
   WrapperLoginForm,
 } from './styles';
 import { FiUserPlus } from 'react-icons/fi';
+import { useAuth } from '../../../context/auth-context';
+import { Link } from 'react-router-dom';
+
 
 function Login() {
+  const { login } = useAuth();
+
   return (
     <Formik
       initialValues={{
@@ -26,6 +31,7 @@ function Login() {
       }}
       onSubmit={(user) => {
         console.log(user);
+        login(user)
       }}
     >
       {({

@@ -1,4 +1,5 @@
 import { Formik } from 'formik';
+import { useAuth } from '../../../../context/auth-context';
 import Button from '../../../Button';
 import Input from '../../../Inputs/Input';
 import {
@@ -9,6 +10,8 @@ import {
 } from './styles';
 
 function SignupForm({ data }) {
+  const {signup} = useAuth();
+
   return (
     <Formik
       initialValues={data}
@@ -42,6 +45,7 @@ function SignupForm({ data }) {
           role: role,
         };
         console.log(credentials);
+        signup(credentials);
       }}
     >
       {({
@@ -114,7 +118,7 @@ function SignupForm({ data }) {
                 onBlur={handleBlur}
               />
             </StyledInputsContainer>
-            <Button type='primary' size='default' value='Create account' />
+            <Button type='primary' size='default' value='Create account' onSubmit={handleSubmit}/>
           </StyledFormContainer>
         </WrapperSignupForm>
       )}

@@ -4,6 +4,7 @@ import apiFetch from './api-fetch';
 export function createUser(userData) {
   return apiFetch('/users', { body: userData }).then((u) => {
     const { token, ...user } = u;
+    console.log(token)
     sessionStorage.setItem(tokenKey, token);
     return user;
   });

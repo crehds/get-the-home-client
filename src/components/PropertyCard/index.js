@@ -12,7 +12,9 @@ import { MdPets } from 'react-icons/md';
 import ChipCard from './ChipCard';
 import { colors } from '../../styles/colors';
 import ActionsCard from './ActionsCard';
+import { useParams } from 'react-router-dom';
 function PropertyCard(props) {
+  let { type } = useParams();
   return (
     <Wrapper>
       <ChipCard operationType={props.operationType}></ChipCard>

@@ -38,6 +38,7 @@ function AuthProvider({ children }) {
       .catch((error) => console.log(error));
   }
   function signup(userData) {
+    console.log(userData)
     createUser(userData)
       .then((u) => setUser(u))
       .catch((error) => console.log(error));

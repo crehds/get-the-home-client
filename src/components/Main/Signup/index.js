@@ -10,11 +10,13 @@ const roles = [
     name: 'Landlord',
     description: 'You want to rent or sell a home',
     img: lanlord,
+    value: 0,
   },
   {
     name: 'Home seeker',
     description: 'You want to find a home',
     img: homeSeeker,
+    value: 1,
   },
 ];
 
@@ -54,7 +56,7 @@ function Signup() {
                     img={role.img}
                     name={role.name}
                     description={role.description}
-                    onClick={() => handleRole(role.name)}
+                    onClick={() => handleRole(role.value)}
                   ></SignupCard>
                 );
               })}
