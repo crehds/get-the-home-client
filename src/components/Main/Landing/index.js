@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import landingIlustration from '../../../assets/images/landingIlustration.svg';
 import { getProperties } from '../../../services/unlogged-service';
 import Button from '../../Button';
@@ -66,11 +67,11 @@ function Landing() {
           <h4>
             Getting someone to rent your apartment has never been this easy
           </h4>
-          <Button
+          <Link to='/signup'><Button
             size='large'
             type='primary'
             value={'Create an account now'}
-          ></Button>
+          ></Button></Link>
         </div>
       </WrapperSignup>
       <WrapperTeam>
