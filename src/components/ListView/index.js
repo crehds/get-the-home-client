@@ -35,7 +35,6 @@ function ListView() {
     });
   }, []);
 
-  console.log(filters)
 
   function filterByRange(properties, range, attribute) {
     if (range.min === 0 && range.max === Infinity) return properties;
@@ -113,7 +112,7 @@ function ListView() {
     return properties.filter((property) => property.operation_type === operation_type);
   }
 
-  const propertiesByPrice = filterByRange(properties, filters.price, 'price');
+  const propertiesByPrice = filterByRange(properties.filter(property => property.active === true), filters.price, 'price');
   const propertiesByPropertyType = filterByPropertyType(
     propertiesByPrice,
     filters.property_type

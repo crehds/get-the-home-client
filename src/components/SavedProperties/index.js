@@ -24,14 +24,31 @@ function SavedProperties() {
     }, []);
 
     useEffect(() => {
-        if (param === "favorites") {
+        if (param === 'favorites') {
           setRenderProperties( properties.filter((property) => property.favorite === true))
         } else {
           setRenderProperties( properties.filter((property) => property.contacted === true))
         };
       }, [properties, param]);
 
+      // let propertiesArray = [];
+      // function splitProperties() {
+      //   let propertySplit = [];
+      //   let i = 0;
+      //   while (i < renderProperties.length) {
+      //     propertySplit = [];
+      //     for (let j = 0; j < 9; j++) {
+      //       if (j < renderProperties.length && i < renderProperties.length) {
+      //         propertySplit.push(renderProperties[i]);
+      //         i++;
+      //       }
+      //     }
+      //     propertiesArray.push(propertySplit);
+      //   }
+      // }
+      // splitProperties();
     const slides = [[...renderProperties], [...renderProperties], [...renderProperties]];
+    console.log(renderProperties)
   return (
     <Section>
       <ListViewWrapper>
