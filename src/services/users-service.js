@@ -24,6 +24,6 @@ export async function updateUser(data) {
     body: data,
     method: 'PATCH'
   });
-  sessionStorage.setItem(user, JSON.stringify({ ...user }));
+  sessionStorage.setItem(userKey, JSON.stringify({ ...user }));
   return user;
 }
