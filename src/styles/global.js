@@ -78,6 +78,11 @@ export const reset = css`
     text-decoration: none;
   }
 
+  a:-webkit-any-link {
+  text-decoration: none;
+  color: inherit;
+}
+
   input[type='number'] {
     -moz-appearance: textfield;
   }

@@ -12,17 +12,20 @@ import { MdPets } from 'react-icons/md';
 import ChipCard from './ChipCard';
 import { colors } from '../../styles/colors';
 import ActionsCard from './ActionsCard';
-import { useParams } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
+
+const defaultPhoto = 'https://dnm.nflximg.net/api/v6/BvVbc2Wxr2w6QuoANoSpJKEIWjQ/AAAAQZUkwT6XhdDnNqAsPrZiQWWHvhpJo0cviRndWweNeFE0G6sOOa7ltzrwXSocCIsqRqAcruHZtEk-MBx_qLAJz-43yAbJAJXmEYKEMD78GRjJ3ro5x5T97jaAj0NwMiaHvO4mNGLRmwNAPE2yA0LWWV1UfQI.jpg?r=48b'
+
 function PropertyCard(props) {
-  let { type } = useParams();
+  const location = useLocation();
   return (
     <Wrapper>
       <ChipCard operationType={props.operationType}></ChipCard>
       <img
-        src={props.photo}
+        src={props.photo? props.photo : defaultPhoto}
         alt={`${props.operationType} ${props.propertyType}`}
       />
-      <WrapperData>
+      <Link to={`/property-detail/${props.id}`}><WrapperData>
         <div className="price-type">
           <WrapperPrice>
             <RiMoneyDollarCircleLine size="2.667rem" />
@@ -34,8 +37,8 @@ function PropertyCard(props) {
           </WrapperType>
         </div>
         <p>{props.address}</p>
-      </WrapperData>
-      <WrapperOthers>
+      </WrapperData></Link>
+      <Link to={`/property-detail/${props.id}`}><WrapperOthers>
         <div>
           <BiBed size="2rem" />
           <p>{props.bedrooms}</p>
@@ -50,11 +53,11 @@ function PropertyCard(props) {
         </div>
         {props.pet ? <MdPets size="1.8rem" /> : ''}
         {props.favorite ? <AiFillHeart size="2rem" color={colors.pink} /> : ''}
-      </WrapperOthers>
-      {props.active === undefined ? (
+      </WrapperOthers></Link>
+      {!(location.pathname.includes("/myproperties"))  ? (
         <div className="bottom-color"></div>
       ) : (
-        <ActionsCard active={props.active} />
+        <ActionsCard active={props.active} id={props.id} handleChange={props.handleChange}/>
       )}
     </Wrapper>
   );

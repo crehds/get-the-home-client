@@ -31,6 +31,22 @@ function MyProperties() {
         };
       }, [properties, param]);
 
+      let propertiesArray = [];
+      function splitProperties() {
+        let propertySplit = [];
+        let i = 0;
+        while (i < renderProperties.length) {
+          propertySplit = [];
+          for (let j = 0; j < 9; j++) {
+            if (j < renderProperties.length && i < renderProperties.length) {
+              propertySplit.push(renderProperties[i]);
+              i++;
+            }
+          }
+          propertiesArray.push(propertySplit);
+        }
+      }
+      splitProperties();
 
     const slides = [[...renderProperties], [...renderProperties], [...renderProperties]];
   return (
@@ -44,7 +60,7 @@ function MyProperties() {
               location.pathname === '/myproperties/closed' ? colors.darkGray : colors.lightGray}`}}>Closed</Option></Link>
         </OptionsWrapper>
         <PropertiesFound>{renderProperties.length} Properties found</PropertiesFound>
-        <Carousel slides={slides} />
+        <Carousel slides={propertiesArray}/>
       </ListViewWrapper>
     </Section>
   );
