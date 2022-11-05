@@ -15,7 +15,9 @@ import { Navigate } from 'react-router-dom';
 function Login() {
   const { login, user } = useAuth();
 
+
   if (user) {
+    console.log(user)
     return <Navigate to='/'/>;
   }
 

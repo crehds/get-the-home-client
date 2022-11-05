@@ -48,7 +48,6 @@ function MyProperties() {
       }
       splitProperties();
 
-    const slides = [[...renderProperties], [...renderProperties], [...renderProperties]];
   return (
     <Section>
       <ListViewWrapper>

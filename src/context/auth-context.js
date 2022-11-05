@@ -1,14 +1,16 @@
 import { useContext } from 'react';
 import { createContext, useEffect, useState } from 'react';
-import { tokenKey } from '../config';
+import { tokenKey, userKey } from '../config';
 import * as auth from './../services/auth-service';
 import { createUser, getUser, updateUser } from './../services/users-service';
 
 const AuthContext = createContext();
+const initialToken = sessionStorage.getItem(tokenKey);
+const initialUser = sessionStorage.getItem(userKey);
 
 function AuthProvider({ children }) {
-  const [token, setToken] = useState(null);
-  const [user, setUser] = useState(null);
+  const [token, setToken] = useState(initialToken);
+  const [user, setUser] = useState(initialUser);
 
   useEffect(() => {
     if (token) {

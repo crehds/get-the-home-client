@@ -1,5 +1,7 @@
 import { Formik } from 'formik';
+import { useEffect, useState } from 'react';
 import { useAuth } from '../../../../context/auth-context';
+import { getUser } from '../../../../services/users-service';
 import Button from '../../../Button';
 import Input from '../../../Inputs/Input';
 import {
@@ -9,12 +11,20 @@ import {
   WrapperSignupForm,
 } from './styles';
 
-function SignupForm({ data, formType = 'signup' }) {
-  const { signup } = useAuth();
+function SignupForm({  formType = 'signup' }) {
+  const { signup, user, handleUpdate } = useAuth();
+  const {data, setData} = useState({})
 
+
+  useEffect(() => {
+    getUser().then(setData).catch(console.log)
+    console.log(data)
+  }, [])
+  
+  console.log(user)
   return (
     <Formik
-      initialValues={data}
+      initialValues={user}
       validate={(values) => {
         const errors = {};
         if (!values.name) errors.name = 'Name required';
@@ -47,7 +57,7 @@ function SignupForm({ data, formType = 'signup' }) {
         console.log(credentials);
         formType === 'signup'
           ? signup(credentials)
-          : console.log('Update profile');
+          : handleUpdate(credentials);
       }}
     >
       {({

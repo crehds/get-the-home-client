@@ -1,4 +1,4 @@
-import { tokenKey } from '../config';
+import { tokenKey, userKey } from '../config';
 import apiFetch from './api-fetch';
 
 export function createUser(userData) {
@@ -6,6 +6,7 @@ export function createUser(userData) {
     const { token, ...user } = u;
     console.log(token)
     sessionStorage.setItem(tokenKey, token);
+    sessionStorage.setItem(userKey, JSON.stringify(user));
     return user;
   });
 }
@@ -23,6 +24,6 @@ export async function updateUser(data) {
     body: data,
     method: 'PATCH'
   });
-  sessionStorage.setItem(user, JSON.stringify({ ...user }));
+  sessionStorage.setItem(userKey, JSON.stringify({ ...user }));
   return user;
 }
