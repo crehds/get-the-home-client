@@ -1,9 +1,9 @@
 import styled from '@emotion/styled';
-import { colors } from '../../../../styles/colors';
-import { typography } from '../../../../styles/typography';
-import { shadow } from '../../../../styles/utils';
+import { colors } from '../../../styles/colors';
+import { typography } from '../../../styles/typography';
+import { shadow } from '../../../styles/utils';
 
-export const WrapperSignupForm = styled.form`
+export const WrapperLoginForm = styled.form`
   min-height: calc(100vh - 7.2rem - 12.98rem);
   background: linear-gradient(
     to bottom,
@@ -15,6 +15,7 @@ export const WrapperSignupForm = styled.form`
   justify-content: center;
   align-items: center;
 `;
+
 export const StyledFormContainer = styled.div`
   padding: 1.6rem;
   background: ${colors.white};

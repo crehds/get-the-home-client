@@ -57,7 +57,7 @@ function CreateForm() {
         choice={choice} setChoice={setChoice}
       />
       <Search
-        placeholder='start typing yo autocomplete'
+        placeholder='start typing to autocomplete'
         label={'Address'}
         setFieldValue={setFieldValue}
         handleChange={handleChange}
@@ -69,6 +69,12 @@ function CreateForm() {
         handleChange={handleChange}
         name={'price'}
       />
+      {choice === "rent" && <Number
+        label={'maintenance'}
+        placeholder={'100'}
+        handleChange={handleChange}
+        name={'maintenance'}
+      />}
       <CrPrProperty>
         <p>property type</p>
         <div>

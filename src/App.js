@@ -4,15 +4,21 @@ import Footer from './components/Footer';
 import ListView from './components/ListView';
 import Landing from './components/Main/Landing';
 import Signup from './components/Main/Signup';
-import SignupForm from './components/Main/Signup/SignupForm';
 import Navbar from './components/Navbar';
 import PropertyDetail from './components/PropertyDetail';
 import MyProperties from './components/MyProperties';
 import SavedProperties from './components/SavedProperties';
 import Main from './containers/Main';
+import Login from './components/Main/Login';
+import SignupForm from './components/Main/Signup/SignupForm';
 
 function App() {
   const location = useLocation();
+  const user = {
+    name: 'Rodrigo',
+    email: 'rodrigo.lopez.160795@hotmail.com',
+    phone: '5531181810',
+  };
   return (
     <>
       <Navbar />
@@ -23,7 +29,11 @@ function App() {
           <Route path='/property-detail' element={<PropertyDetail />} />
           <Route path='/property-detail/:id' element={<PropertyDetail />} />
           <Route path='/signup' element={<Signup />} />
-          <Route path='/signup-form' element={<SignupForm />} />
+          <Route path='/login' element={<Login />} />
+          <Route
+            path='/profile'
+            element={<SignupForm formType='edit' data={user} />}
+          />
           <Route path='/list-view' element={<ListView />} />
           <Route path='/myproperties' element={<MyProperties />} />
           <Route path='/myproperties/:status' element={<MyProperties />} />

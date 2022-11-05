@@ -6,7 +6,7 @@ import {
 } from 'react-icons/ri';
 import { Wrapper } from './styles';
 
-function ActionsCard({ active }) {
+function ActionsCard({ active, id, handleChange }) {
   const options =
     active === true
       ? [
@@ -18,13 +18,24 @@ function ActionsCard({ active }) {
           { name: 'delete', icon: <RiDeleteBin6Line size="2rem" /> }
         ];
 
+  function handleButton(event) {
+    console.log(event.target.id)
+    if (event.target.id === 'close') {
+      handleChange(id, {"active": false}, 'active')
+    } else if (event.target.id === 'restore') {
+      handleChange(id, {"active": true}, 'active')
+    } else {
+      handleChange(id)
+    }
+  }
+
   return (
     <Wrapper>
       {options.map((element) => {
         return (
-          <div key={element.name}>
+          <div key={element.name} >
             {element.icon}
-            <p>{element.name}</p>
+            <a id={element.name} onClick={handleButton}>{element.name}</a>
           </div>
         );
       })}
