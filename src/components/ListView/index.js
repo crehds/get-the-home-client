@@ -16,7 +16,7 @@ const initialState = {
   pets: false,
   area: { min: '', max: '' },
   operation_type: 'sale & rent',
-  searchQuery: '',
+  searchQuery: ''
 };
 function ListView() {
   const [properties, setProperties] = useState([]);
@@ -26,15 +26,13 @@ function ListView() {
     getProperties().then((data) => {
       //Paso adicional hasta que este resuelto la imagen de la api
       setProperties(
-        data.map((e) => ({
-          ...e,
-          photo:
-            'https://dnm.nflximg.net/api/v6/BvVbc2Wxr2w6QuoANoSpJKEIWjQ/AAAAQZUkwT6XhdDnNqAsPrZiQWWHvhpJo0cviRndWweNeFE0G6sOOa7ltzrwXSocCIsqRqAcruHZtEk-MBx_qLAJz-43yAbJAJXmEYKEMD78GRjJ3ro5x5T97jaAj0NwMiaHvO4mNGLRmwNAPE2yA0LWWV1UfQI.jpg?r=48b',
+        data.map((property) => ({
+          ...property,
+          photo: property.photos_urls?.[0]
         }))
       );
     });
   }, []);
-
 
   function filterByRange(properties, range, attribute) {
     if (range.min === 0 && range.max === Infinity) return properties;
@@ -107,12 +105,18 @@ function ListView() {
   }
 
   function filterByOperationType(properties, operation_type) {
-    if (operation_type === "sale & rent") return properties;
+    if (operation_type === 'sale & rent') return properties;
 
-    return properties.filter((property) => property.operation_type === operation_type);
+    return properties.filter(
+      (property) => property.operation_type === operation_type
+    );
   }
 
-  const propertiesByPrice = filterByRange(properties.filter(property => property.active === true), filters.price, 'price');
+  const propertiesByPrice = filterByRange(
+    properties.filter((property) => property.active === true),
+    filters.price,
+    'price'
+  );
   const propertiesByPropertyType = filterByPropertyType(
     propertiesByPrice,
     filters.property_type
@@ -141,8 +145,8 @@ function ListView() {
   const propertiesFiltered = filterByOperationType(
     propertiesByAddress,
     filters.operation_type
-  )
-  
+  );
+
   let propertiesArray = [];
   function splitProperties() {
     let propertySplit = [];

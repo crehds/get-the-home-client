@@ -8,23 +8,22 @@ import {
   StyledError,
   StyledFormContainer,
   StyledInputsContainer,
-  WrapperSignupForm,
+  WrapperSignupForm
 } from './styles';
 
-function SignupForm({  formType = 'signup' }) {
+function SignupForm({ data, formType = 'signup' }) {
   const { signup, user, handleUpdate } = useAuth();
-  const {data, setData} = useState({})
+  // const { data, setData } = useState({});
 
+  // useEffect(() => {
+  //   getUser().then(setData).catch(console.log);
+  //   console.log(data);
+  // }, []);
 
-  useEffect(() => {
-    getUser().then(setData).catch(console.log)
-    console.log(data)
-  }, [])
-  
-  console.log(user)
+  // console.log(user);
   return (
     <Formik
-      initialValues={user}
+      initialValues={data}
       validate={(values) => {
         const errors = {};
         if (!values.name) errors.name = 'Name required';
@@ -52,12 +51,10 @@ function SignupForm({  formType = 'signup' }) {
           email: email,
           password: password,
           phone: phone,
-          role: role,
+          role: role
         };
         console.log(credentials);
-        formType === 'signup'
-          ? signup(credentials)
-          : handleUpdate(credentials);
+        formType === 'signup' ? signup(credentials) : handleUpdate(credentials);
       }}
     >
       {({
@@ -66,7 +63,7 @@ function SignupForm({  formType = 'signup' }) {
         touched,
         handleChange,
         handleBlur,
-        handleSubmit,
+        handleSubmit
       }) => (
         <WrapperSignupForm onSubmit={handleSubmit}>
           <StyledFormContainer>
