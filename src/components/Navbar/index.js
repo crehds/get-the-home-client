@@ -3,7 +3,7 @@ import {
   RiUserAddLine,
   RiUserReceived2Line,
   RiUserLine,
-  RiHome8Line,
+  RiHome8Line
 } from 'react-icons/ri';
 import { BiLogOutCircle } from 'react-icons/bi';
 import { AiFillHeart } from 'react-icons/ai';
@@ -12,8 +12,10 @@ import { WrapperHeader, WrapperNav, WrapperUl } from './styles';
 import logo from '../../assets/images/logo.svg';
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useAuth } from '../../context/auth-context';
 
-function Navbar({ user }) {
+function Navbar() {
+  const { user } = useAuth();
   return (
     <WrapperHeader>
       <WrapperNav>
