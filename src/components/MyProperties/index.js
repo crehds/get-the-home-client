@@ -1,5 +1,6 @@
 
 import { useEffect, useState } from "react";
+import { BiWindows } from "react-icons/bi";
 import { Link, useLocation, useParams } from "react-router-dom";
 import Section from "../../containers/Section";
 import { getProperties } from "../../services/landlord-services";
@@ -24,6 +25,7 @@ function MyProperties() {
     }, []);
 
     useEffect(() => {
+      
         if (param === "active") {
           setRenderProperties( properties.filter((property) => property.active === true))
         } else {
@@ -59,7 +61,7 @@ function MyProperties() {
               location.pathname === '/myproperties/closed' ? colors.darkGray : colors.lightGray}`}}>Closed</Option></Link>
         </OptionsWrapper>
         <PropertiesFound>{renderProperties.length} Properties found</PropertiesFound>
-        <Carousel slides={propertiesArray}/>
+        <Carousel slides={propertiesArray} handleChange={setRenderProperties} properties={renderProperties}/>
       </ListViewWrapper>
     </Section>
   );

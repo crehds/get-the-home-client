@@ -25,30 +25,36 @@ function SavedProperties() {
 
     useEffect(() => {
         if (param === 'favorites') {
-          setRenderProperties( properties.filter((property) => property.favorite === true))
+          setRenderProperties( properties.filter((property) => property.favorite == true).map(property => property.property))
         } else {
-          setRenderProperties( properties.filter((property) => property.contacted === true))
+          setRenderProperties( properties.filter((property) => property.contacted == true).map(property => property.property))
         };
       }, [properties, param]);
 
-      // let propertiesArray = [];
-      // function splitProperties() {
-      //   let propertySplit = [];
-      //   let i = 0;
-      //   while (i < renderProperties.length) {
-      //     propertySplit = [];
-      //     for (let j = 0; j < 9; j++) {
-      //       if (j < renderProperties.length && i < renderProperties.length) {
-      //         propertySplit.push(renderProperties[i]);
-      //         i++;
-      //       }
-      //     }
-      //     propertiesArray.push(propertySplit);
-      //   }
-      // }
-      // splitProperties();
-    const slides = [[...renderProperties], [...renderProperties], [...renderProperties]];
-    console.log(renderProperties)
+      useEffect(() => {
+        getSavedProperties()
+          .then((data) => setProperties(data))
+          .catch((error) => console.log(error));
+      }, []);
+
+      let propertiesArray = [];
+      function splitProperties() {
+        let propertySplit = [];
+        let i = 0;
+        while (i < renderProperties.length) {
+          propertySplit = [];
+          for (let j = 0; j < 9; j++) {
+            if (j < renderProperties.length && i < renderProperties.length) {
+              propertySplit.push(renderProperties[i]);
+              i++;
+            }
+          }
+          propertiesArray.push(propertySplit);
+        }
+      }
+      splitProperties();
+
+    console.log(properties.filter((property) => property.contacted == true))
   return (
     <Section>
       <ListViewWrapper>
@@ -60,7 +66,7 @@ function SavedProperties() {
               location.pathname === '/savedproperties/contacted' ? colors.darkGray : colors.lightGray}`}}>Contacted</Option></Link>
         </OptionsWrapper>
         <PropertiesFound>{renderProperties.length} Properties found</PropertiesFound>
-        <Carousel slides={slides} />
+        <Carousel slides={propertiesArray} />
       </ListViewWrapper>
     </Section>
   );

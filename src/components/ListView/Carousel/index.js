@@ -5,13 +5,17 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { updateProperty, removeProperty } from '../../../services/landlord-services';
 
-function Carousel({ slides }) {
+function Carousel({ slides, handleChange, properties }) {
   const [slide, setSlide] = useState(0);
 
   function handleAction (id, data, action) {
     if (action === "active") {
       updateProperty(id, data).then(console.log).catch(console.log)
+      // console.log(properties)
+      // console.log(data.active)
+      handleChange(properties.filter((property) => property.active == data.active))
     } else {
+      handleChange(properties.filter((property) => property.id !== id))
       removeProperty(id).then(console.log).catch(console.log)
     }
     window.location.reload();
@@ -49,7 +53,7 @@ function Carousel({ slides }) {
                 key={card.id}
                 {...card}
                 operationType={card.operation_type}
-                price={card.price.toLocaleString('en-US')}
+                price={card.price?.toLocaleString('en-US')}
                 propertyType={card.property_type}
                 pet={card.pets}
                 handleChange={handleAction}
