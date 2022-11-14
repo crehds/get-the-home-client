@@ -11,14 +11,11 @@ import SavedProperties from './components/SavedProperties';
 import Main from './containers/Main';
 import Login from './components/Main/Login';
 import SignupForm from './components/Main/Signup/SignupForm';
+import { useAuth } from './context/auth-context';
 
 function App() {
   const location = useLocation();
-  const user = {
-    name: 'Rodrigo',
-    email: 'rodrigo.lopez.160795@hotmail.com',
-    phone: '5531181810',
-  };
+  const { user } = useAuth();
   return (
     <>
       <Navbar />
