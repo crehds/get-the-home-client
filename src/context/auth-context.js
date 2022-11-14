@@ -9,7 +9,7 @@ const initialToken = sessionStorage.getItem(tokenKey);
 const initialUser = sessionStorage.getItem(userKey);
 
 function AuthProvider({ children }) {
-  const [token, setToken] = useState(initialToken);
+  const [ token ] = useState(initialToken);
   const [user, setUser] = useState(initialUser);
 
   useEffect(() => {
@@ -18,7 +18,7 @@ function AuthProvider({ children }) {
         .then((u) => setUser(u))
         .catch((error) => console.log(error));
     }
-  }, []);
+  }, [token]);
 
   function login(credentials) {
     auth
@@ -29,6 +29,7 @@ function AuthProvider({ children }) {
   function logout() {
     auth.logout().then(() => {
       sessionStorage.removeItem(tokenKey);
+      sessionStorage.removeItem(userKey);
       setUser(null);
     });
   }

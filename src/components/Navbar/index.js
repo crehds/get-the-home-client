@@ -15,7 +15,11 @@ import { Link } from 'react-router-dom';
 import { useAuth } from '../../context/auth-context';
 
 function Navbar() {
-  const { user } = useAuth();
+  const { user, logout } = useAuth();
+
+  function handleLogout() {
+    logout()
+  }
   return (
     <WrapperHeader>
       <WrapperNav>
@@ -52,40 +56,41 @@ function Navbar() {
         ) : (
           <WrapperUl>
             <div>
-              <Button
+            <Link to='/list-view'><Button
                 size='default'
                 type='ghost'
                 value={'Find a home'}
                 icon={<BiSearch size='2.1rem' />}
-              />
+              /></Link>
             </div>
             <Button
               size='default'
               type='secondary'
               value={'Logout'}
               icon={<BiLogOutCircle size='2rem' />}
+              onClick={handleLogout}
             />
-            {user.role === 'seeker' ? (
-              <Button
+            {user.role === 'homeseeker' ? (
+              <Link to='/savedproperties'><Button
                 size='default'
                 type='primary'
                 value={'Saved Properties'}
                 icon={<AiFillHeart size='2rem' />}
-              />
+              /></Link>
             ) : (
-              <Button
+              <Link to='/myproperties'><Button
                 size='default'
                 type='primary'
                 value={'My Properties'}
                 icon={<RiHome8Line size='2rem' />}
-              />
+              /></Link>
             )}
-            <Button
+            <Link to='/profile'><Button
               size='default'
               type='primary'
               value={'Profile'}
               icon={<RiUserLine size='2rem' />}
-            />
+            /></Link>
           </WrapperUl>
         )}
       </WrapperNav>

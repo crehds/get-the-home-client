@@ -1,8 +1,8 @@
 
 import { useEffect, useState } from "react";
-import { BiWindows } from "react-icons/bi";
-import { Link, useLocation, useParams } from "react-router-dom";
+import { Link, Navigate, useLocation, useParams } from "react-router-dom";
 import Section from "../../containers/Section";
+import { useAuth } from "../../context/auth-context";
 import { getProperties } from "../../services/landlord-services";
 import { colors } from "../../styles/colors";
 import Carousel from "../ListView/Carousel";
@@ -18,6 +18,11 @@ function MyProperties() {
     const [properties, setProperties] = useState([]);
     const [renderProperties, setRenderProperties] = useState([]);
 
+    const {  user } = useAuth();
+
+
+
+
     useEffect(() => {
       getProperties()
         .then((data) => setProperties(data))
@@ -32,6 +37,10 @@ function MyProperties() {
           setRenderProperties( properties.filter((property) => property.active === false))
         };
       }, [properties, param]);
+
+      if (!user || user.role === "homeseeker") {
+        return <Navigate to='/'/>;
+      }
 
       let propertiesArray = [];
       function splitProperties() {

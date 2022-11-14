@@ -1,7 +1,8 @@
 
 import { useEffect, useState } from "react";
-import { Link, useLocation, useParams } from "react-router-dom";
+import { Link, Navigate, useLocation, useParams } from "react-router-dom";
 import Section from "../../containers/Section";
+import { useAuth } from "../../context/auth-context";
 import { getSavedProperties } from "../../services/homeseeker-services";
 import { colors } from "../../styles/colors";
 import Carousel from "../ListView/Carousel";
@@ -11,8 +12,11 @@ import { ListViewWrapper } from "./styles";
 // const slides = [[...cards], [...cards], [...cards]];
 function SavedProperties() {
   let location = useLocation();
-  let { attribute } = useParams();
-  let param = !attribute ? 'favorites' : attribute;
+  let { status } = useParams();
+  let param = !status ? 'favorites' : status;
+  const { user } = useAuth();
+
+
 
     const [properties, setProperties] = useState([]);
     const [renderProperties, setRenderProperties] = useState([]);
@@ -25,9 +29,9 @@ function SavedProperties() {
 
     useEffect(() => {
         if (param === 'favorites') {
-          setRenderProperties( properties.filter((property) => property.favorite == true).map(property => property.property))
+          setRenderProperties( properties.filter((property) => property.favorite === true).map(property => property.property))
         } else {
-          setRenderProperties( properties.filter((property) => property.contacted == true).map(property => property.property))
+          setRenderProperties( properties.filter((property) => property.contacted === true).map(property => property.property))
         };
       }, [properties, param]);
 
@@ -36,6 +40,11 @@ function SavedProperties() {
           .then((data) => setProperties(data))
           .catch((error) => console.log(error));
       }, []);
+
+      
+      if (!user || user.role === 'landlord') {
+        return <Navigate to='/'/>;
+      }
 
       let propertiesArray = [];
       function splitProperties() {
@@ -54,7 +63,7 @@ function SavedProperties() {
       }
       splitProperties();
 
-    console.log(properties.filter((property) => property.contacted == true))
+    console.log(status)
   return (
     <Section>
       <ListViewWrapper>
