@@ -11,7 +11,7 @@ import {
   WrapperProducts,
   WrapperSearch,
   WrapperSignup,
-  WrapperTeam,
+  WrapperTeam
 } from './styles';
 
 function Landing() {
@@ -20,10 +20,9 @@ function Landing() {
     getProperties()
       .then((data) => {
         setProperties(
-          data.map((e) => ({
-            ...e,
-            photo:
-              'https://dnm.nflximg.net/api/v6/BvVbc2Wxr2w6QuoANoSpJKEIWjQ/AAAAQZUkwT6XhdDnNqAsPrZiQWWHvhpJo0cviRndWweNeFE0G6sOOa7ltzrwXSocCIsqRqAcruHZtEk-MBx_qLAJz-43yAbJAJXmEYKEMD78GRjJ3ro5x5T97jaAj0NwMiaHvO4mNGLRmwNAPE2yA0LWWV1UfQI.jpg?r=48b',
+          data.map((property) => ({
+            ...property,
+            photo: property.photos_urls?.[0]
           }))
         );
       })
@@ -67,11 +66,13 @@ function Landing() {
           <h4>
             Getting someone to rent your apartment has never been this easy
           </h4>
-          <Link to='/signup'><Button
-            size='large'
-            type='primary'
-            value={'Create an account now'}
-          ></Button></Link>
+          <Link to='/signup'>
+            <Button
+              size='large'
+              type='primary'
+              value={'Create an account now'}
+            ></Button>
+          </Link>
         </div>
       </WrapperSignup>
       <WrapperTeam>
